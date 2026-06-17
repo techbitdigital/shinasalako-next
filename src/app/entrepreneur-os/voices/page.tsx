@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Founder Fifteen",
@@ -19,13 +20,13 @@ export default function EosVoicesPage() {
             Stories coming soon. Take the diagnostic to be notified when the first Founder Fifteen profiles go live.
           </p>
           <div className="mt-8">
-            
+            <Link
               href="/entrepreneur-os/diagnostic"
               className="inline-block px-7 py-3.5 rounded-full text-sm font-semibold border-0"
               style={{ background: "var(--amber)", color: "#fff" }}
             >
               Take the diagnostic
-            </a>
+            </Link>
           </div>
         </div>
       </section>
