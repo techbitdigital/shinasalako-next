@@ -43,8 +43,8 @@ export default function EosFooter() {
             <ul className="space-y-1.5">
               {[
                 { href: "/entrepreneur-os/about", label: "About" },
-                { href: "/entrepreneur-os/voices", label: "Founder Fifteen" },
-                { href: "/entrepreneur-os/coaching", label: "Corporate Workshops" },
+                { href: "/entrepreneur-os/voices", label: "Founder Voices" },
+                { href: "/entrepreneur-os/coaching", label: "Coaching & Workshops" },
                 { href: "mailto:hello@shinasalako.com", label: "Contact" },
               ].map((l) => (
                 <li key={l.href}>

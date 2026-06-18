@@ -21,7 +21,7 @@ const resources = [
     category: "Entrepreneur OS",
     items: [
       { title: "12-Minute Founder Diagnostic", desc: "Five operating systems. One clear answer about where your business is leaking.", href: "/entrepreneur-os/diagnostic", cta: "Take the diagnostic" },
-      { title: "EOS Readiness Worksheet", desc: "A downloadable worksheet to map your five operating systems before the book.", href: "/assets/downloads/EOS-Entrepreneurship-Readiness-Worksheet.pdf", cta: "Download PDF" },
+      { title: "EOS Readiness Worksheet", desc: "A downloadable worksheet to map your five operating systems before the book.", href: "/entrepreneur-os/diagnostic", cta: "Take the diagnostic" },
     ],
   },
   {
