@@ -1,5 +1,6 @@
 'use client';
 import { useState } from "react";
+import { validateFields, FieldErrors } from "@/lib/validation";
 
 declare global {
   interface Window {
@@ -12,38 +13,77 @@ declare global {
 export default function EosWorkshopBooking() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", organisation: "", instalment: "full" });
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const [errors, setErrors] = useState<FieldErrors>({});
 
   const amount = form.instalment === "full" ? 185000 : 97500;
 
+  function updateField(name: string, value: string) {
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  }
+
   function handlePaystack() {
-    if (!form.name || !form.email) { alert("Please fill in your name and email."); return; }
+    const newErrors = validateFields({
+      name: { value: form.name, required: true, label: "Full name" },
+      email: { value: form.email, required: true, email: true, label: "Email address" },
+      phone: { value: form.phone, required: true, label: "Phone number" },
+    });
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      // Scroll to first error
+      const firstErrorEl = document.querySelector('[data-field-error]');
+      if (firstErrorEl) firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    setErrors({});
     setStatus("loading");
 
-    const script = document.createElement("script");
-    script.src = "https://js.paystack.co/v1/inline.js";
-    script.onload = () => {
-      const handler = window.PaystackPop.setup({
-        key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
-        email: form.email,
-        amount: amount * 100,
-        currency: "NGN",
-        ref: `EOS-WORKSHOP-${Date.now()}`,
-        metadata: { name: form.name, phone: form.phone, organisation: form.organisation, instalment: form.instalment },
-        callback: async (response: { reference: string }) => {
-          try {
-            await fetch("/api/eos/workshop", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ ...form, reference: response.reference, amount }),
-            });
-            setStatus("success");
-          } catch { setStatus("error"); }
-        },
-        onClose: () => setStatus("idle"),
-      });
-      handler.openIframe();
-    };
-    document.body.appendChild(script);
+    function initPaystack() {
+      try {
+        const handler = window.PaystackPop.setup({
+          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
+          email: form.email,
+          amount: Math.round(amount * 100),
+          currency: "NGN",
+          ref: `EOS-WORKSHOP-${Date.now()}`,
+          metadata: {
+            name: form.name,
+            phone: form.phone,
+            organisation: form.organisation,
+            instalment: form.instalment,
+          },
+          callback: async (response: { reference: string }) => {
+            try {
+              await fetch("/api/eos/workshop", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...form, reference: response.reference, amount }),
+              });
+              setStatus("success");
+            } catch {
+              setStatus("error");
+            }
+          },
+          onClose: () => setStatus("idle"),
+        });
+        handler.openIframe();
+      } catch (err) {
+        console.error("Paystack error:", err);
+        setStatus("error");
+      }
+    }
+
+    if (window.PaystackPop) {
+      initPaystack();
+    } else {
+      const script = document.createElement("script");
+      script.src = "https://js.paystack.co/v1/inline.js";
+      script.onload = initPaystack;
+      script.onerror = () => {
+        setStatus("error");
+      };
+      document.body.appendChild(script);
+    }
   }
 
   if (status === "success") return (
@@ -54,25 +94,35 @@ export default function EosWorkshopBooking() {
     </div>
   );
 
+  const fieldStyle = (name: string) => ({
+    border: errors[name] ? "1.5px solid #e53e3e" : "1px solid var(--line)",
+    background: "#fff",
+    color: "var(--ink)",
+  });
+
   return (
     <div className="space-y-5">
       {[
         { name: "name", label: "Full name", type: "text", placeholder: "Your name" },
         { name: "email", label: "Email address", type: "email", placeholder: "your@email.com" },
         { name: "phone", label: "Phone number", type: "tel", placeholder: "+234 xxx xxx xxxx" },
-        { name: "organisation", label: "Business / organisation", type: "text", placeholder: "Your company name (optional)" },
+        { name: "organisation", label: "Business / organisation (optional)", type: "text", placeholder: "Your company name (optional)" },
       ].map((field) => (
-        <div key={field.name}>
-          <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>{field.label}</label>
+        <div key={field.name} data-field-error={errors[field.name] ? "true" : undefined}>
+          <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>
+            {field.label}
+          </label>
           <input
             type={field.type}
-            required={field.name !== "organisation"}
             placeholder={field.placeholder}
             value={form[field.name as keyof typeof form]}
-            onChange={(e) => setForm({ ...form, [field.name]: e.target.value })}
+            onChange={(e) => updateField(field.name, e.target.value)}
             className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-            style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
+            style={fieldStyle(field.name)}
           />
+          {errors[field.name] && (
+            <p className="text-xs mt-1" style={{ color: "#e53e3e" }}>{errors[field.name]}</p>
+          )}
         </div>
       ))}
 
@@ -91,6 +141,7 @@ export default function EosWorkshopBooking() {
               style={{
                 border: form.instalment === opt.value ? "2px solid var(--amber)" : "1px solid var(--line)",
                 background: form.instalment === opt.value ? "rgba(255,107,0,0.05)" : "#fff",
+                cursor: "pointer",
               }}
             >
               <p className="text-sm font-semibold mb-0.5" style={{ color: "var(--navy)" }}>{opt.label}</p>
@@ -100,16 +151,27 @@ export default function EosWorkshopBooking() {
         </div>
       </div>
 
-      {status === "error" && <p className="text-sm" style={{ color: "red" }}>Payment failed. Please try again.</p>}
+      {status === "error" && (
+        <p className="text-sm" style={{ color: "#e53e3e" }}>
+          Payment failed or could not load. Please check your connection and try again.
+        </p>
+      )}
 
       <button
         type="button"
         onClick={handlePaystack}
         disabled={status === "loading"}
         className="w-full py-3.5 rounded-full text-sm font-semibold border-0"
-        style={{ background: "var(--amber)", color: "#fff", opacity: status === "loading" ? 0.7 : 1 }}
+        style={{
+          background: "var(--amber)",
+          color: "#fff",
+          opacity: status === "loading" ? 0.7 : 1,
+          cursor: status === "loading" ? "not-allowed" : "pointer",
+        }}
       >
-        {status === "loading" ? "Opening payment..." : `Pay ${form.instalment === "full" ? "₦185,000" : "₦97,500"} via Paystack`}
+        {status === "loading"
+          ? "Opening payment..."
+          : `Pay ${form.instalment === "full" ? "₦185,000" : "₦97,500"} via Paystack`}
       </button>
       <p className="text-xs text-center" style={{ color: "var(--muted)" }}>
         Secured by Paystack · Nigerian cards, bank transfer & USSD supported.
