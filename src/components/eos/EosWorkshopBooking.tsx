@@ -52,17 +52,14 @@ export default function EosWorkshopBooking() {
             organisation: form.organisation,
             instalment: form.instalment,
           },
-          callback: async (response: { reference: string }) => {
-            try {
-              await fetch("/api/eos/workshop", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...form, reference: response.reference, amount }),
-              });
-              setStatus("success");
-            } catch {
-              setStatus("error");
-            }
+          callback: (response: { reference: string }) => {
+            fetch("/api/eos/workshop", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ ...form, reference: response.reference, amount }),
+            })
+              .then(() => setStatus("success"))
+              .catch(() => setStatus("error"));
           },
           onClose: () => setStatus("idle"),
         });
