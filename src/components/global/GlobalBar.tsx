@@ -107,8 +107,8 @@ function NavItem({ item }: { item: typeof navItems[0] }) {
       {/* Dropdown — flush to button, no gap */}
       {hasChildren && open && (
         <div
-          className="absolute top-full left-0 z-50 min-w-[210px]"
-          style={{ paddingTop: "4px" }}
+          className="absolute top-full z-50 min-w-[210px]"
+          style={{ paddingTop: "4px", ...(item.label === "Resources" ? { right: 0 } : { left: 0 }) }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

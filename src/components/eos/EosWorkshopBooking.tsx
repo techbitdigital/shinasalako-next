@@ -60,7 +60,7 @@ export default function EosWorkshopBooking() {
         { name: "name", label: "Full name", type: "text", placeholder: "Your name" },
         { name: "email", label: "Email address", type: "email", placeholder: "your@email.com" },
         { name: "phone", label: "Phone number", type: "tel", placeholder: "+234 xxx xxx xxxx" },
-        { name: "organisation", label: "Business / organisation", type: "text", placeholder: "Optional" },
+        { name: "organisation", label: "Business / organisation", type: "text", placeholder: "Your company name (optional)" },
       ].map((field) => (
         <div key={field.name}>
           <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>{field.label}</label>

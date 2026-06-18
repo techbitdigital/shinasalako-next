@@ -208,6 +208,40 @@ export default function JosephProtocolPage() {
         </div>
       </section>
 
+      {/* Book purchase CTA */}
+      <section
+        className="py-16 md:py-24"
+        style={{ background: "var(--cream)", borderBottom: "1px solid var(--line)" }}
+      >
+        <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8 text-center">
+          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
+            The book
+          </p>
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-4" style={{ color: "var(--navy)" }}>
+            The Joseph Protocol — coming soon
+          </h2>
+          <p className="font-serif italic text-base md:text-lg mb-8" style={{ color: "var(--ink-soft)" }}>
+            The book is being written. Join the waitlist above to be notified when it is available for purchase.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="#quiz"
+              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold border-0"
+              style={{ background: "var(--navy)", color: "#fff" }}
+            >
+              Join the waitlist
+            </Link>
+            <Link
+              href="/entrepreneur-os/book"
+              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold"
+              style={{ background: "transparent", color: "var(--navy)", border: "1.5px solid var(--navy)" }}
+            >
+              Read Entrepreneur OS instead
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-16 md:py-24 text-center" style={{ background: "var(--navy)" }}>
         <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8">
