@@ -1,12 +1,27 @@
 'use client';
 import { useState } from "react";
+import { validateFields, FieldErrors } from "@/lib/validation";
 
 export default function FleetContactForm() {
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
   const [form, setForm] = useState({ name: "", organisation: "", email: "", phone: "", type: "", message: "" });
+  const [errors, setErrors] = useState<FieldErrors>({});
+
+  function updateField(name: string, value: string) {
+    setForm({ ...form, [name]: value });
+    setErrors({ ...errors, [name]: "" });
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const newErrors = validateFields({
+      name: { value: form.name, required: true, label: "Full name" },
+      email: { value: form.email, required: true, email: true, label: "Email address" },
+      type: { value: form.type, required: true, label: "Type of enquiry" },
+      message: { value: form.message, required: true, label: "Message" },
+    });
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
+    setErrors({});
     setStatus("loading");
     try {
       const res = await fetch("/api/fleet/contact", {
@@ -15,9 +30,7 @@ export default function FleetContactForm() {
         body: JSON.stringify(form),
       });
       setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+    } catch { setStatus("error"); }
   }
 
   if (status === "success") return (
@@ -27,8 +40,13 @@ export default function FleetContactForm() {
     </div>
   );
 
+  const fieldStyle = (name: string) => ({
+    border: errors[name] ? "1.5px solid #e53e3e" : "1px solid var(--line)",
+    background: "#fff", color: "var(--ink)"
+  });
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
       {[
         { name: "name", label: "Full name", type: "text", placeholder: "Your full name" },
         { name: "organisation", label: "Organisation", type: "text", placeholder: "Company or organisation" },
@@ -38,24 +56,22 @@ export default function FleetContactForm() {
         <div key={field.name}>
           <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>{field.label}</label>
           <input
-            type={field.type}
-            required={field.name !== "phone"}
-            placeholder={field.placeholder}
+            type={field.type} placeholder={field.placeholder}
             value={form[field.name as keyof typeof form]}
-            onChange={(e) => setForm({ ...form, [field.name]: e.target.value })}
+            onChange={(e) => updateField(field.name, e.target.value)}
             className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-            style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
+            style={fieldStyle(field.name)}
           />
+          {errors[field.name] && <p className="text-xs mt-1" style={{ color: "#e53e3e" }}>{errors[field.name]}</p>}
         </div>
       ))}
       <div>
         <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>Type of enquiry</label>
         <select
-          required
           value={form.type}
-          onChange={(e) => setForm({ ...form, type: e.target.value })}
+          onChange={(e) => updateField("type", e.target.value)}
           className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-          style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
+          style={fieldStyle("type")}
         >
           <option value="">Select one</option>
           <option>Speaking engagement</option>
@@ -64,23 +80,22 @@ export default function FleetContactForm() {
           <option>Embedded telematics service</option>
           <option>General enquiry</option>
         </select>
+        {errors.type && <p className="text-xs mt-1" style={{ color: "#e53e3e" }}>{errors.type}</p>}
       </div>
       <div>
         <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>Message</label>
         <textarea
-          required
-          rows={5}
-          placeholder="Tell us about your fleet and what you need..."
+          rows={5} placeholder="Tell us about your fleet and what you need..."
           value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
+          onChange={(e) => updateField("message", e.target.value)}
           className="w-full px-4 py-3 rounded-lg text-sm outline-none resize-none"
-          style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
+          style={fieldStyle("message")}
         />
+        {errors.message && <p className="text-xs mt-1" style={{ color: "#e53e3e" }}>{errors.message}</p>}
       </div>
-      {status === "error" && <p className="text-sm" style={{ color: "red" }}>Something went wrong. Please try again.</p>}
+      {status === "error" && <p className="text-sm" style={{ color: "#e53e3e" }}>Something went wrong. Please try again.</p>}
       <button
-        type="submit"
-        disabled={status === "loading"}
+        type="submit" disabled={status === "loading"}
         className="w-full py-3.5 rounded-full text-sm font-semibold border-0"
         style={{ background: "var(--navy)", color: "#fff", opacity: status === "loading" ? 0.7 : 1 }}
       >

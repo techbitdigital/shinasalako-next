@@ -1,12 +1,20 @@
 'use client';
 import { useState } from "react";
+import { validateFields, FieldErrors } from "@/lib/validation";
 
 export default function FleetFirstLookForm() {
   const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
   const [form, setForm] = useState({ name: "", email: "" });
+  const [errors, setErrors] = useState<FieldErrors>({});
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const newErrors = validateFields({
+      name: { value: form.name, required: true, label: "First name" },
+      email: { value: form.email, required: true, email: true, label: "Email address" },
+    });
+    if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
+    setErrors({});
     setStatus("loading");
     try {
       const res = await fetch("/api/fleet/firstlook", {
@@ -28,35 +36,32 @@ export default function FleetFirstLookForm() {
   );
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>First name</label>
-        <input
-          type="text"
-          required
-          placeholder="Your first name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-          style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>Corporate email</label>
-        <input
-          type="email"
-          required
-          placeholder="your@company.com"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full px-4 py-3 rounded-lg text-sm outline-none"
-          style={{ border: "1px solid var(--line)", background: "#fff", color: "var(--ink)" }}
-        />
-      </div>
-      {status === "error" && <p className="text-sm" style={{ color: "red" }}>Something went wrong. Please try again.</p>}
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+      {[
+        { name: "name", label: "First name", type: "text", placeholder: "Your first name" },
+        { name: "email", label: "Corporate email", type: "email", placeholder: "your@company.com" },
+      ].map((field) => (
+        <div key={field.name}>
+          <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>{field.label}</label>
+          <input
+            type={field.type}
+            placeholder={field.placeholder}
+            value={form[field.name as keyof typeof form]}
+            onChange={(e) => { setForm({ ...form, [field.name]: e.target.value }); setErrors({ ...errors, [field.name]: "" }); }}
+            className="w-full px-4 py-3 rounded-lg text-sm outline-none"
+            style={{
+              border: errors[field.name] ? "1.5px solid #e53e3e" : "1px solid var(--line)",
+              background: "#fff", color: "var(--ink)"
+            }}
+          />
+          {errors[field.name] && (
+            <p className="text-xs mt-1" style={{ color: "#e53e3e" }}>{errors[field.name]}</p>
+          )}
+        </div>
+      ))}
+      {status === "error" && <p className="text-sm" style={{ color: "#e53e3e" }}>Something went wrong. Please try again.</p>}
       <button
-        type="submit"
-        disabled={status === "loading"}
+        type="submit" disabled={status === "loading"}
         className="w-full py-3.5 rounded-full text-sm font-semibold border-0"
         style={{ background: "var(--navy)", color: "#fff", opacity: status === "loading" ? 0.7 : 1 }}
       >
