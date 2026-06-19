@@ -45,7 +45,7 @@ export default function FleetBookPage() {
               </p>
               <div className="space-y-3 mb-8">
                 {[
-                  "270 pages \u00b7 Three parts \u00b7 27 chapters",
+                  "270 pages · Three parts · 27 chapters",
                   "Nineteen practitioner appendices",
                   "The seven-layer Fleet Operating System",
                   "Extended Guinness Nigeria case study",
@@ -107,8 +107,8 @@ export default function FleetBookPage() {
               <div className="rounded-lg p-5 mb-8 text-left" style={{ background: "var(--cream)" }}>
                 <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
                   {successInfo.product === "eBook"
-                    ? "Check your inbox \u2014 your eBook link will arrive within a few minutes."
-                    : "Your paperback will be dispatched within 1\u20132 business days. We\u2019ll email you a tracking update when it ships."}
+                    ? "Check your inbox — your eBook link will arrive within a few minutes."
+                    : "Your paperback will be dispatched within 1–2 business days. We'll email you a tracking update when it ships."}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -159,8 +159,8 @@ export default function FleetBookPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="bg-white rounded-lg p-7" style={{ border: "1px solid var(--line)" }}>
                   <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Paperback</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a612,500</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy \u00b7 Lagos 2-3 days \u00b7 Nationwide 5-7 days</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦12,500</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy · Lagos 2-3 days · Nationwide 5-7 days</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={12500}
@@ -173,9 +173,9 @@ export default function FleetBookPage() {
                   />
                 </div>
                 <div className="bg-white rounded-lg p-7" style={{ border: "2px solid var(--amber)" }}>
-                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook \u2014 PDF</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a67,500</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery \u00b7 Read on any device</p>
+                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook — PDF</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦7,500</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={7500}
@@ -189,7 +189,7 @@ export default function FleetBookPage() {
                 </div>
               </div>
               <p className="text-xs text-center mt-4" style={{ color: "var(--muted)" }}>
-                Secured by Paystack \u00b7 Nigerian cards, bank transfer & USSD supported.
+                Secured by Paystack · Nigerian cards, bank transfer & USSD supported.
               </p>
             </>
           )}

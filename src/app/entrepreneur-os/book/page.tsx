@@ -106,8 +106,8 @@ export default function EosBookPage() {
               >
                 <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
                   {successInfo.product === "eBook"
-                    ? "Check your inbox \u2014 your eBook link will arrive within a few minutes."
-                    : "Your paperback will be dispatched within 1\u20132 business days. We\u2019ll email you a tracking update when it ships."}
+                    ? "Check your inbox — your eBook link will arrive within a few minutes."
+                    : "Your paperback will be dispatched within 1–2 business days. We'll email you a tracking update when it ships."}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -158,8 +158,8 @@ export default function EosBookPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="bg-white rounded-lg p-7" style={{ border: "1px solid var(--line)" }}>
                   <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Paperback</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a615,000</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook \u00b7 Lagos 2-3 days</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦15,000</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook · Lagos 2-3 days</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={15000}
@@ -172,9 +172,9 @@ export default function EosBookPage() {
                   />
                 </div>
                 <div className="bg-white rounded-lg p-7" style={{ border: "2px solid var(--amber)" }}>
-                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook \u2014 PDF</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a69,500</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery \u00b7 Read on any device</p>
+                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook — PDF</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦9,500</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={9500}
@@ -188,7 +188,7 @@ export default function EosBookPage() {
                 </div>
               </div>
               <p className="text-xs text-center mt-4" style={{ color: "var(--muted)" }}>
-                Secured by Paystack \u00b7 Nigerian cards, bank transfer & USSD supported.
+                Secured by Paystack · Nigerian cards, bank transfer & USSD supported.
               </p>
             </>
           )}
