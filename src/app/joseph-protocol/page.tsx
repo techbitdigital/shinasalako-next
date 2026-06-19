@@ -1,293 +1,345 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import GlobalBar from "@/components/global/GlobalBar";
-import JosephWaitlist from "@/components/joseph/JosephWaitlist";
+import JosephQuiz from "@/components/joseph/JosephQuiz";
+import JosephPricing from "@/components/joseph/JosephPricing";
+import JosephPhasesGrid from "@/components/joseph/JosephPhasesGrid";
+import { insideBullets, tools } from "@/lib/data/joseph";
 
 export const metadata: Metadata = {
-  title: "The Joseph Protocol — Shina Salako",
+  title: "The Joseph Protocol \u2014 Shina Salako",
   description:
-    "A framework for the phases every builder moves through. Name the phase you are in and what it asks of you.",
-  openGraph: {
-    title: "The Joseph Protocol",
-    description:
-      "For the builder in a long season — naming the phase you are in and what it asks of you.",
-    url: "https://shinasalako.com/joseph-protocol",
-  },
+    "Build With Wisdom. Steward With Excellence. Preserve for Legacy. A practical biblical framework for understanding your season, preparing for opportunity, and building a legacy that outlives you.",
 };
-
-const phases = [
-  {
-    name: "The Pit",
-    subtitle: "Phase 1",
-    desc: "You are in a season of loss, confusion, or betrayal. The work here is not to escape quickly — it is to stay intact.",
-  },
-  {
-    name: "The House",
-    subtitle: "Phase 2",
-    desc: "You have found stability and are building competence. The work here is faithfulness in the small things.",
-  },
-  {
-    name: "The Prison",
-    subtitle: "Phase 3",
-    desc: "You did everything right and it still went wrong. The work here is to keep your character while waiting.",
-  },
-  {
-    name: "The Palace",
-    subtitle: "Phase 4",
-    desc: "You have been elevated. The work here is stewardship — holding authority without losing the lessons of the earlier phases.",
-  },
-];
 
 export default function JosephProtocolPage() {
   return (
-    <main>
+    <main style={{ fontFamily: "'Lora', Georgia, serif", color: "#1A1A1A", background: "#EBF3FB" }}>
       <GlobalBar />
 
       {/* Hero */}
-      <header className="py-16 md:py-24" style={{ background: "var(--cream)" }}>
-        <div style={{ maxWidth: "1140px" }} className="mx-auto px-5 md:px-8">
-          <div style={{ maxWidth: "780px" }}>
-            <p className="text-[11px] tracking-widest uppercase font-bold mb-4" style={{ color: "var(--teal)" }}>
-              For the season you are in
-            </p>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight mb-5" style={{ color: "var(--navy)" }}>
-              The Joseph Protocol
-            </h1>
-            <p className="font-serif italic text-base sm:text-lg md:text-xl mb-8" style={{ color: "var(--ink-soft)" }}>
-              A framework for the phases every builder moves through. Name
-              the phase you are in — and what it asks of you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href="#quiz"
-                className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold border-0"
-                style={{ background: "var(--navy)", color: "#fff" }}
+      <header
+        className="relative overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(circle at 20% 18%, rgba(255,107,0,.10), transparent 42%), radial-gradient(circle at 85% 8%, rgba(26,60,110,.10), transparent 40%), #EBF3FB",
+        }}
+      >
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-10 md:gap-12 items-center">
+            <div>
+              <span
+                className="inline-block text-[0.7rem] tracking-[0.18em] uppercase font-semibold px-4 py-1.5 rounded-full mb-4"
+                style={{ background: "#FF6B00", color: "#fff" }}
               >
-                Get notified when quiz launches
-              </Link>
-              <Link
-                href="#framework"
-                className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold"
-                style={{ background: "transparent", color: "var(--navy)", border: "1.5px solid var(--navy)" }}
+                Now Available
+              </span>
+              <h1
+                className="mb-2"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(2.4rem, 5vw, 3.5rem)", color: "#1A3C6E", lineHeight: 1.1, fontWeight: 600 }}
               >
-                The framework
-              </Link>
+                The Joseph Protocol
+              </h1>
+              <p className="italic mb-5" style={{ color: "#1A3C6E", fontSize: "1.18rem" }}>
+                Build With Wisdom. Steward With Excellence. Preserve for Legacy.
+              </p>
+              <p style={{ color: "#1A1A1A", fontSize: "1.12rem", maxWidth: "30em" }} className="mb-7">
+                <strong style={{ color: "#1A3C6E" }}>You are not stuck.</strong> You may simply be in a phase you
+                do not yet understand. Joseph had a dream &mdash; but it did not take him straight to the palace.
+                It took him through a process. And that process has a pattern you can learn.
+              </p>
+              <div className="flex flex-wrap items-center gap-3.5">
+                <Link
+                  href="#pricing"
+                  className="inline-block border-0 font-semibold"
+                  style={{ background: "#FF6B00", color: "#fff", padding: "15px 32px", borderRadius: "40px", fontSize: "1rem" }}
+                >
+                  Get the Book
+                </Link>
+                <Link
+                  href="#phases"
+                  className="inline-block font-semibold"
+                  style={{ background: "transparent", color: "#1A3C6E", border: "1.5px solid #1A3C6E", padding: "15px 32px", borderRadius: "40px", fontSize: "1rem" }}
+                >
+                  See the Seven Phases
+                </Link>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div
+                className="flex flex-col justify-between relative"
+                style={{
+                  aspectRatio: "3/4.3",
+                  maxWidth: "330px",
+                  width: "100%",
+                  borderRadius: "8px",
+                  background: "linear-gradient(150deg, #13294B, #1A3C6E 55%, #13294B)",
+                  boxShadow: "0 18px 50px rgba(20,33,61,.30)",
+                  border: "1px solid #13294B",
+                  transform: "rotate(1.4deg)",
+                  padding: "34px 28px",
+                }}
+              >
+                <div
+                  className="absolute pointer-events-none"
+                  style={{ inset: "10px", border: "1px solid rgba(255,107,0,.45)", borderRadius: "4px" }}
+                />
+                <div style={{ textTransform: "uppercase", letterSpacing: "0.28em", fontSize: "0.62rem", color: "#FF6B00" }}>
+                  Shina Salako
+                </div>
+                <div
+                  style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", lineHeight: 1.08, color: "#EBF3FB" }}
+                >
+                  The Joseph Protocol
+                </div>
+                <div
+                  style={{ fontSize: "0.74rem", fontStyle: "italic", color: "#EBF3FB", borderTop: "1px solid rgba(255,107,0,.4)", paddingTop: "12px", letterSpacing: "0.04em" }}
+                >
+                  Build with wisdom. Steward with excellence. Preserve for legacy.
+                </div>
+                <div style={{ letterSpacing: "0.18em", textTransform: "uppercase", fontSize: "0.72rem", color: "#EBF3FB" }}>
+                  A Blueprint for Your Process
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Pull quote */}
-      <section
-        className="py-12 md:py-16"
-        style={{ background: "var(--navy)", borderBottom: "1px solid rgba(235,243,251,0.1)" }}
-      >
-        <div style={{ maxWidth: "780px" }} className="mx-auto px-5 md:px-8 text-center">
-          <p className="font-serif italic text-xl sm:text-2xl md:text-3xl leading-relaxed" style={{ color: "#fff" }}>
-            &ldquo;Every phase has a name. Every name has a discipline.
-            Every discipline has an exit.&rdquo;
-          </p>
-          <p className="text-sm mt-4" style={{ color: "rgba(235,243,251,0.6)" }}>
-            — The Joseph Protocol
-          </p>
+      {/* Intro */}
+      <section className="py-16 md:py-[78px]">
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6 text-center">
+          <div style={{ maxWidth: "40em" }} className="mx-auto">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              Why this book
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+              Your season is not random. It has a pattern.
+            </h2>
+            <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
+              Pain is hard. But pain without interpretation is harder. Many people are not lazy or faithless
+              &mdash; they are simply carrying a vision that does not yet match their daily life. <em>The Joseph
+              Protocol</em> takes the life of Joseph and turns it into a practical map: seven phases that help
+              you locate where you are, understand what your season requires, and build accordingly.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Four phases */}
+      {/* Quote */}
       <section
-        className="py-16 md:py-24"
-        style={{ background: "#fff", borderBottom: "1px solid var(--line)" }}
-        id="framework"
+        className="text-center py-16 md:py-[78px]"
+        style={{
+          background:
+            "radial-gradient(circle at 80% 30%, rgba(255,107,0,.18), transparent 45%), linear-gradient(135deg, #1A3C6E, #43332650 100%), #1A3C6E",
+        }}
       >
-        <div style={{ maxWidth: "1140px" }} className="mx-auto px-5 md:px-8">
-          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
-            The framework
+        <div style={{ maxWidth: "820px" }} className="mx-auto px-6">
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", lineHeight: 1.3, color: "#EBF3FB", margin: 0 }}>
+            &ldquo;The palace was not where Joseph became ready. It was where his readiness was revealed.&rdquo;
           </p>
-          <h2
-            className="font-serif text-2xl sm:text-3xl md:text-4xl mb-10"
-            style={{ color: "var(--navy)", maxWidth: "680px" }}
+          <span className="block italic mt-5" style={{ fontSize: "1rem", color: "#FF6B00", letterSpacing: "0.04em" }}>
+            &mdash; The Joseph Protocol
+          </span>
+        </div>
+      </section>
+
+      {/* Seven phases */}
+      <section
+        className="py-16 md:py-[78px]"
+        style={{ background: "linear-gradient(180deg, #EBF3FB, #EBF3FB)", borderTop: "1px solid #e0d2ba", borderBottom: "1px solid #e0d2ba" }}
+        id="phases"
+      >
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6">
+          <div style={{ maxWidth: "40em" }} className="mx-auto text-center mb-12">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              The Framework
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+              The Seven Phases
+            </h2>
+            <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
+              Most people use the right effort in the wrong season. These seven phases help you stop
+              misdiagnosing your life &mdash; and start building with focus.
+            </p>
+          </div>
+          <JosephPhasesGrid />
+        </div>
+      </section>
+
+      {/* Quiz */}
+      <section className="py-16 md:py-[78px]" id="quiz">
+        <div style={{ maxWidth: "780px" }} className="mx-auto px-6">
+          <div style={{ maxWidth: "40em" }} className="mx-auto text-center mb-12">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              Free 2-minute self-check
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+              Find Your Phase
+            </h2>
+            <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
+              Tick every statement that feels true for you right now &mdash; honestly, not where you wish you
+              were. Then reveal the phase your season is asking you to build in.
+            </p>
+          </div>
+          <JosephQuiz />
+        </div>
+      </section>
+
+      {/* What's inside */}
+      <section
+        className="py-16 md:py-[78px]"
+        style={{ borderTop: "1px solid #e0d2ba", borderBottom: "none" }}
+      >
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6">
+          <div style={{ maxWidth: "40em" }} className="mx-auto text-center mb-12">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              What you&rsquo;ll learn
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }}>
+              Inside the book
+            </h2>
+          </div>
+          <ul
+            className="grid grid-cols-1 sm:grid-cols-2 gap-x-[38px] gap-y-3 list-none p-0 mx-auto"
+            style={{ maxWidth: "880px" }}
           >
-            Four phases. Every builder moves through all of them.
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {phases.map((phase) => (
+            {insideBullets.map((b) => (
+              <li key={b} className="relative" style={{ paddingLeft: "30px" }}>
+                <span className="absolute left-0" style={{ color: "#FF6B00" }}>&#10022;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Tools showcase */}
+      <section
+        className="py-16 md:py-[78px]"
+        style={{ background: "linear-gradient(180deg, #EBF3FB, #EBF3FB)", borderTop: "1px solid #e0d2ba", borderBottom: "1px solid #e0d2ba" }}
+        id="tools"
+      >
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6">
+          <div style={{ maxWidth: "40em" }} className="mx-auto text-center mb-12">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              Inside the workbook
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+              Ten tools to build your blueprint
+            </h2>
+            <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
+              The companion turns each phase into something you build &mdash; and every tool includes a worked
+              example, so you always know what &ldquo;done&rdquo; looks like.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+            {tools.map((tool) => (
               <div
-                key={phase.name}
-                className="rounded-lg p-7"
-                style={{ background: "var(--cream)", border: "1px solid var(--line)" }}
+                key={tool.num}
+                className="flex gap-3"
+                style={{ background: "#EBF3FB", border: "1px solid #e0d2ba", borderRadius: "12px", padding: "18px" }}
               >
-                <p className="text-[11px] tracking-widest uppercase font-bold mb-2" style={{ color: "var(--amber)" }}>
-                  {phase.subtitle}
-                </p>
-                <h3 className="font-serif text-2xl mb-3" style={{ color: "var(--navy)" }}>
-                  {phase.name}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-                  {phase.desc}
-                </p>
+                <div style={{ fontFamily: "'Playfair Display', serif", color: "#FF6B00", fontWeight: 700, fontSize: "1.05rem", flexShrink: 0, lineHeight: 1.4 }}>
+                  {tool.num}
+                </div>
+                <div>
+                  <h4 className="m-0" style={{ fontSize: "1.04rem", color: "#1A3C6E", fontWeight: 600 }}>{tool.title}</h4>
+                  <p className="mt-1" style={{ fontSize: "0.86rem", color: "#7d6b58" }}>{tool.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quiz waitlist */}
-      <section
-        className="py-16 md:py-24"
-        style={{ background: "var(--cream)", borderBottom: "1px solid var(--line)" }}
-        id="quiz"
-      >
-        <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8 text-center">
-          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
-            Coming soon
-          </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-4" style={{ color: "var(--navy)" }}>
-            Find your phase
-          </h2>
-          <p className="font-serif italic text-base md:text-lg leading-relaxed mb-4" style={{ color: "var(--ink-soft)" }}>
-            A short quiz that names the phase you are building through and
-            the single next step it calls for.
-          </p>
-          <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>
-            Leave your email and we will notify you the moment it goes live.
-          </p>
-          <JosephWaitlist />
+      {/* Pricing */}
+      <section className="py-16 md:py-[78px]" id="pricing">
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6">
+          <div style={{ maxWidth: "40em" }} className="mx-auto text-center mb-12">
+            <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+              Get your copy
+            </p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+              Choose how you&rsquo;ll build
+            </h2>
+            <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
+              Start with the book, go deeper with the workbook, or get both together and save.
+            </p>
+          </div>
+          <JosephPricing />
         </div>
       </section>
 
-      {/* Author */}
-      <section
-        className="py-16 md:py-24"
-        style={{ background: "#fff", borderBottom: "1px solid var(--line)" }}
-      >
-        <div style={{ maxWidth: "1140px" }} className="mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-start">
+      {/* About */}
+      <section className="py-16 md:py-[78px]">
+        <div style={{ maxWidth: "1080px" }} className="mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[0.7fr_1.3fr] gap-12 items-center">
+            <div
+              className="relative rounded-full overflow-hidden mx-auto w-full"
+              style={{ aspectRatio: "1/1", maxWidth: "260px", border: "3px solid #FF6B00", boxShadow: "0 18px 50px rgba(46,35,27,.14)" }}
+            >
+              <Image src="/images/shina.jpg" alt="Shina Salako" fill className="object-cover object-top" sizes="260px" />
+            </div>
             <div>
-              <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
-                The author
+              <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+                About the Author
               </p>
-              <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>
+              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-4">
                 Shina Salako
               </h2>
-              <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: "var(--ink-soft)" }}>
-                The Joseph Protocol is the third of three books. It is the
-                most personal — written for the builder who is in a long
-                season and cannot yet see the exit. Shina Salako has been
-                in all four phases. He writes from inside them, not after.
+              <p style={{ color: "#1A3C6E" }} className="mb-4">
+                Shina Salako is a leadership coach, business strategist, speaker, and trainer with a passion for
+                helping people build with wisdom, steward with excellence, and preserve for legacy. A certified
+                Maxwell Leadership Team member, his work sits at the intersection of faith, leadership,
+                entrepreneurship, systems thinking, and stewardship.
               </p>
-              <Link
-                href="/entrepreneur-os/about"
-                className="text-sm font-semibold border-0"
-                style={{ color: "var(--navy)" }}
-              >
-                Read the full story &#8594;
-              </Link>
-            </div>
-            <div className="rounded-lg p-7 md:p-8" style={{ background: "var(--navy)" }}>
-              <p className="text-[11px] tracking-widest uppercase font-bold mb-4" style={{ color: "rgba(235,243,251,0.6)" }}>
-                Also by Shina Salako
+              <p style={{ color: "#1A3C6E" }}>
+                He has trained, coached, and spoken to entrepreneurs, professionals, ministry leaders, and
+                organizations &mdash; helping them move from inspiration to implementation. <em>The Joseph
+                Protocol</em> distills that work into a single, usable framework.
               </p>
-              <div className="space-y-4">
-                {[
-                  { href: "/entrepreneur-os", label: "The Entrepreneur Operating System", desc: "For the founder who has become the bottleneck." },
-                  { href: "/fleet", label: "Telematics & Fleet Management", desc: "For fleet leaders in emerging markets." },
-                ].map((book) => (
-                  <Link
-                    key={book.href}
-                    href={book.href}
-                    className="block p-4 rounded-md border-0"
-                    style={{ background: "rgba(235,243,251,0.07)", border: "1px solid rgba(235,243,251,0.15)" }}
-                  >
-                    <p className="text-sm font-semibold mb-1" style={{ color: "#fff" }}>{book.label}</p>
-                    <p className="text-xs" style={{ color: "rgba(235,243,251,0.65)" }}>{book.desc}</p>
-                  </Link>
-                ))}
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Book purchase CTA */}
-      <section
-        className="py-16 md:py-24"
-        style={{ background: "var(--cream)", borderBottom: "1px solid var(--line)" }}
-      >
-        <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8 text-center">
-          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
-            The book
-          </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-4" style={{ color: "var(--navy)" }}>
-            The Joseph Protocol — coming soon
-          </h2>
-          <p className="font-serif italic text-base md:text-lg mb-8" style={{ color: "var(--ink-soft)" }}>
-            The book is being written. Join the waitlist above to be notified when it is available for purchase.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="#quiz"
-              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold border-0"
-              style={{ background: "var(--navy)", color: "#fff" }}
-            >
-              Join the waitlist
-            </Link>
-            <Link
-              href="/entrepreneur-os/book"
-              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold"
-              style={{ background: "transparent", color: "var(--navy)", border: "1.5px solid var(--navy)" }}
-            >
-              Read Entrepreneur OS instead
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 text-center" style={{ background: "var(--navy)" }}>
-        <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8">
-          <h2
-            className="font-serif text-2xl sm:text-3xl md:text-4xl mb-5"
-            style={{ color: "#fff", lineHeight: "1.15" }}
-          >
-            Name the phase. Do the work. Exit well.
-          </h2>
-          <p className="font-serif italic text-base md:text-xl mb-10" style={{ color: "var(--cream)" }}>
-            The quiz is coming. In the meantime — start with one of the other two books.
+      <section
+        className="text-center py-16 md:py-[78px]"
+        style={{ background: "linear-gradient(160deg, #1A3C6E, #43332e), #1A3C6E", color: "#EBF3FB" }}
+      >
+        <div style={{ maxWidth: "680px" }} className="mx-auto px-6">
+          <p className="uppercase font-semibold mb-3" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
+            Do not only admire Joseph
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/entrepreneur-os"
-              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold border-0"
-              style={{ background: "var(--cream)", color: "var(--navy)" }}
-            >
-              Entrepreneur OS
-            </Link>
-            <Link
-              href="/fleet"
-              className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold"
-              style={{ background: "transparent", color: "#fff", border: "1.5px solid rgba(235,243,251,0.6)" }}
-            >
-              Fleet & Telematics
-            </Link>
-          </div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.4rem", color: "#EBF3FB", fontWeight: 600 }} className="mb-3.5">
+            Build your own Joseph Protocol
+          </h2>
+          <p style={{ color: "#EBF3FB", fontSize: "1.12rem" }} className="mb-6">
+            Locate your phase. Build with wisdom. Preserve for legacy. Your copy is ready when you are.
+          </p>
+          <Link
+            href="#pricing"
+            className="inline-block border-0 font-semibold"
+            style={{ background: "#FF6B00", color: "#fff", padding: "15px 32px", borderRadius: "40px", fontSize: "1rem" }}
+          >
+            Get the Book
+          </Link>
+          <p className="mt-4" style={{ fontSize: "0.9rem", color: "#7d6b58" }}>
+            Available in print and eBook &middot; Instant access to the workbook
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="pt-12 pb-7 text-sm" style={{ background: "#13294b", color: "rgba(255,255,255,0.8)" }}>
-        <div style={{ maxWidth: "1140px" }} className="mx-auto px-5 md:px-8">
-          <div
-            className="flex flex-wrap justify-between gap-4 pt-5 text-[13px]"
-            style={{ color: "rgba(255,255,255,0.6)" }}
-          >
-            <span>© 2026 Shina Salako. All rights reserved.</span>
-            <div className="flex gap-4">
-              <Link href="/" className="border-0 hover:text-white" style={{ color: "rgba(255,255,255,0.6)" }}>Home</Link>
-              <Link href="/entrepreneur-os" className="border-0 hover:text-white" style={{ color: "rgba(255,255,255,0.6)" }}>Entrepreneur OS</Link>
-              <Link href="/fleet" className="border-0 hover:text-white" style={{ color: "rgba(255,255,255,0.6)" }}>Fleet & Telematics</Link>
-            </div>
-          </div>
+      <footer className="text-center py-10 px-6" style={{ background: "#1A3C6E", color: "#cdb79a", fontSize: "0.9rem" }}>
+        <div style={{ fontFamily: "'Playfair Display', serif", color: "#EBF3FB", fontSize: "1.2rem" }}>
+          The Joseph Protocol
         </div>
+        <p>Build With Wisdom. Steward With Excellence. Preserve for Legacy.</p>
+        <p>&copy; 2026 Shina Salako. All rights reserved.</p>
       </footer>
     </main>
   );
