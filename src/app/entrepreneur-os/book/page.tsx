@@ -7,7 +7,7 @@ import { eosBookPoints } from "@/lib/data/eos";
 
 export default function EosBookPage() {
   const [form, setForm] = useState({ name: "", email: "" });
-  const [successMsg, setSuccessMsg] = useState("");
+  const [successInfo, setSuccessInfo] = useState<{ product: string; email: string } | null>(null);
 
   async function handleSuccess(reference: string, product: string, amount: number) {
     await fetch("/api/eos/book-purchase", {
@@ -15,7 +15,7 @@ export default function EosBookPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...form, reference, product, amount }),
     });
-    setSuccessMsg(`Payment confirmed! Your ${product} confirmation has been sent to ${form.email}.`);
+    setSuccessInfo({ product, email: form.email });
   }
 
   return (
@@ -75,16 +75,63 @@ export default function EosBookPage() {
 
       <section className="py-16 md:py-24" style={{ background: "var(--cream)" }} id="buy">
         <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8">
-          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Get your copy</p>
-          <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Choose your format</h2>
-
-          {successMsg ? (
-            <div className="rounded-lg p-8 text-center" style={{ background: "#fff", border: "1px solid var(--line)" }}>
-              <p className="font-serif text-xl mb-2" style={{ color: "var(--navy)" }}>Payment confirmed.</p>
-              <p className="text-sm" style={{ color: "var(--ink-soft)" }}>{successMsg}</p>
+          {successInfo ? (
+            <div
+              className="rounded-2xl p-10 md:p-12 text-center"
+              style={{ background: "#fff", border: "1px solid var(--line)", boxShadow: "0 20px 50px -20px rgba(20,33,61,0.15)" }}
+            >
+              <div
+                className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                style={{ background: "rgba(255,107,0,0.1)" }}
+              >
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6L9 17L4 12" stroke="var(--amber)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>
+                Order confirmed
+              </p>
+              <h2 className="font-serif text-2xl md:text-3xl mb-4" style={{ color: "var(--navy)" }}>
+                You&rsquo;re all set.
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed mb-2" style={{ color: "var(--ink-soft)" }}>
+                Your <strong>{successInfo.product}</strong> confirmation has been sent to
+              </p>
+              <p className="text-sm md:text-base font-semibold mb-8" style={{ color: "var(--navy)" }}>
+                {successInfo.email}
+              </p>
+              <div
+                className="rounded-lg p-5 mb-8 text-left"
+                style={{ background: "var(--cream)" }}
+              >
+                <p className="text-sm" style={{ color: "var(--ink-soft)" }}>
+                  {successInfo.product === "eBook"
+                    ? "Check your inbox \u2014 your eBook link will arrive within a few minutes."
+                    : "Your paperback will be dispatched within 1\u20132 business days. We\u2019ll email you a tracking update when it ships."}
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link
+                  href="/entrepreneur-os/diagnostic"
+                  className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold border-0"
+                  style={{ background: "var(--navy)", color: "#fff" }}
+                >
+                  Take the diagnostic
+                </Link>
+                <Link
+                  href="/entrepreneur-os"
+                  className="inline-block text-center px-7 py-3.5 rounded-full text-sm font-semibold"
+                  style={{ background: "transparent", color: "var(--navy)", border: "1.5px solid var(--navy)" }}
+                >
+                  Back to Entrepreneur OS
+                </Link>
+              </div>
             </div>
           ) : (
             <>
+              <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Get your copy</p>
+              <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Choose your format</h2>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>Full name</label>
@@ -111,8 +158,8 @@ export default function EosBookPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="bg-white rounded-lg p-7" style={{ border: "1px solid var(--line)" }}>
                   <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Paperback</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦15,000</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook · Lagos 2-3 days</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a615,000</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook \u00b7 Lagos 2-3 days</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={15000}
@@ -125,9 +172,9 @@ export default function EosBookPage() {
                   />
                 </div>
                 <div className="bg-white rounded-lg p-7" style={{ border: "2px solid var(--amber)" }}>
-                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook — PDF</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦9,500</p>
-                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
+                  <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook \u2014 PDF</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>\u20a69,500</p>
+                  <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery \u00b7 Read on any device</p>
                   <PaystackButton
                     email={form.email} name={form.name}
                     amount={9500}
@@ -141,7 +188,7 @@ export default function EosBookPage() {
                 </div>
               </div>
               <p className="text-xs text-center mt-4" style={{ color: "var(--muted)" }}>
-                Secured by Paystack · Nigerian cards, bank transfer & USSD supported.
+                Secured by Paystack \u00b7 Nigerian cards, bank transfer & USSD supported.
               </p>
             </>
           )}
