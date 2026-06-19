@@ -50,7 +50,7 @@ export default function EosAuthor() {
               className="font-serif italic text-xl md:text-2xl leading-relaxed"
               style={{ color: "var(--navy)", margin: 0 }}
             >
-              &ldquo;I write for the founder I was in 2009 — the one who
+              &ldquo;I write for the founder I was in 2009, the one who
               thought hustle was strategy.&rdquo;
             </p>
           </div>
