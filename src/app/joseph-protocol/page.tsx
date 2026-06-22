@@ -8,14 +8,14 @@ import JosephPhasesGrid from "@/components/joseph/JosephPhasesGrid";
 import { insideBullets, tools } from "@/lib/data/joseph";
 
 export const metadata: Metadata = {
-  title: "The Joseph Protocol \u2014 Shina Salako",
+  title: "The Joseph Protocol — Shina Salako",
   description:
     "Build With Wisdom. Steward With Excellence. Preserve for Legacy. A practical biblical framework for understanding your season, preparing for opportunity, and building a legacy that outlives you.",
 };
 
 export default function JosephProtocolPage() {
   return (
-    <main style={{ fontFamily: "'Lora', Georgia, serif", color: "#1A1A1A", background: "#EBF3FB" }}>
+    <main style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", color: "#1A1A1A", background: "#EBF3FB" }}>
       <GlobalBar />
 
       {/* Hero */}
@@ -37,7 +37,7 @@ export default function JosephProtocolPage() {
               </span>
               <h1
                 className="mb-2"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(2.4rem, 5vw, 3.5rem)", color: "#1A3C6E", lineHeight: 1.1, fontWeight: 600 }}
+                style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "clamp(2.4rem, 5vw, 3.5rem)", color: "#1A3C6E", lineHeight: 1.1, fontWeight: 600 }}
               >
                 The Joseph Protocol
               </h1>
@@ -89,7 +89,7 @@ export default function JosephProtocolPage() {
                   Shina Salako
                 </div>
                 <div
-                  style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", lineHeight: 1.08, color: "#EBF3FB" }}
+                  style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2rem", lineHeight: 1.08, color: "#EBF3FB" }}
                 >
                   The Joseph Protocol
                 </div>
@@ -114,7 +114,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               Why this book
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
               Your season is not random. It has a pattern.
             </h2>
             <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
@@ -136,7 +136,7 @@ export default function JosephProtocolPage() {
         }}
       >
         <div style={{ maxWidth: "820px" }} className="mx-auto px-6">
-          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "2rem", lineHeight: 1.3, color: "#EBF3FB", margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2rem", lineHeight: 1.3, color: "#EBF3FB", margin: 0 }}>
             &ldquo;The palace was not where Joseph became ready. It was where his readiness was revealed.&rdquo;
           </p>
           <span className="block italic mt-5" style={{ fontSize: "1rem", color: "#FF6B00", letterSpacing: "0.04em" }}>
@@ -156,7 +156,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               The Framework
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
               The Seven Phases
             </h2>
             <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
@@ -175,7 +175,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               Free 2-minute self-check
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
               Find Your Phase
             </h2>
             <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
@@ -197,7 +197,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               What you&rsquo;ll learn
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }}>
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }}>
               Inside the book
             </h2>
           </div>
@@ -226,7 +226,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               Inside the workbook
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
               Ten tools to build your blueprint
             </h2>
             <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
@@ -241,7 +241,7 @@ export default function JosephProtocolPage() {
                 className="flex gap-3"
                 style={{ background: "#EBF3FB", border: "1px solid #e0d2ba", borderRadius: "12px", padding: "18px" }}
               >
-                <div style={{ fontFamily: "'Playfair Display', serif", color: "#FF6B00", fontWeight: 700, fontSize: "1.05rem", flexShrink: 0, lineHeight: 1.4 }}>
+                <div style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", color: "#FF6B00", fontWeight: 700, fontSize: "1.05rem", flexShrink: 0, lineHeight: 1.4 }}>
                   {tool.num}
                 </div>
                 <div>
@@ -261,7 +261,7 @@ export default function JosephProtocolPage() {
             <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
               Get your copy
             </p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
+            <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-3.5">
               Choose how you&rsquo;ll build
             </h2>
             <p style={{ fontSize: "1.12rem", color: "#1A3C6E" }}>
@@ -286,7 +286,7 @@ export default function JosephProtocolPage() {
               <p className="uppercase font-semibold mb-3.5" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
                 About the Author
               </p>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-4">
+              <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.3rem", color: "#1A3C6E", fontWeight: 600 }} className="mb-4">
                 Shina Salako
               </h2>
               <p style={{ color: "#1A3C6E" }} className="mb-4">
@@ -314,7 +314,7 @@ export default function JosephProtocolPage() {
           <p className="uppercase font-semibold mb-3" style={{ letterSpacing: "0.22em", fontSize: "0.72rem", color: "#FF6B00" }}>
             Do not only admire Joseph
           </p>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "2.4rem", color: "#EBF3FB", fontWeight: 600 }} className="mb-3.5">
+          <h2 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "2.4rem", color: "#EBF3FB", fontWeight: 600 }} className="mb-3.5">
             Build your own Joseph Protocol
           </h2>
           <p style={{ color: "#EBF3FB", fontSize: "1.12rem" }} className="mb-6">
@@ -335,7 +335,7 @@ export default function JosephProtocolPage() {
 
       {/* Footer */}
       <footer className="text-center py-10 px-6" style={{ background: "#1A3C6E", color: "#cdb79a", fontSize: "0.9rem" }}>
-        <div style={{ fontFamily: "'Playfair Display', serif", color: "#EBF3FB", fontSize: "1.2rem" }}>
+        <div style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", color: "#EBF3FB", fontSize: "1.2rem" }}>
           The Joseph Protocol
         </div>
         <p>Build With Wisdom. Steward With Excellence. Preserve for Legacy.</p>

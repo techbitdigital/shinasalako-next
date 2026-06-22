@@ -58,8 +58,8 @@ export default function EosWorkshopPage() {
       <section className="py-16 md:py-24" style={{ background: "var(--cream)" }}>
         <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8">
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Reserve your seat</p>
-          <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Book your place — 18 August 2026</h2>
-          <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>30 seats only. Payment via Paystack — Nigerian cards, bank transfer, and USSD supported.</p>
+          <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Book your place 18 August 2026</h2>
+          <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>30 seats only. Payment via Paystack Nigerian cards, bank transfer, and USSD supported.</p>
           <EosWorkshopBooking />
         </div>
       </section>

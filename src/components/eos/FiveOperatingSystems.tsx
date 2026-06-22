@@ -7,7 +7,7 @@ export default function FiveOperatingSystems() {
       className="py-16 md:py-24"
       style={{ background: "#fff", borderBottom: "1px solid var(--line)" }}
     >
-      <div style={{ maxWidth: "1140px" }} className="mx-auto px-5 md:px-8">
+      <div style={{ maxWidth: "1280px" }} className="mx-auto px-5 md:px-8">
         <p className="text-[11px] tracking-widest uppercase font-bold mb-3 text-center" style={{ color: "var(--teal)" }}>
           The framework
         </p>
@@ -21,11 +21,11 @@ export default function FiveOperatingSystems() {
           Every business runs on five. When growth stalls, one of them is leaking. Usually only one.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-5 xl:gap-4">
           {eosOperatingSystems.map((os) => (
             <div
               key={os.number}
-              className="rounded-lg p-6 flex flex-col"
+              className="rounded-lg p-6 xl:p-5 flex flex-col"
               style={{ background: "var(--cream)" }}
             >
               <div
@@ -34,7 +34,7 @@ export default function FiveOperatingSystems() {
               >
                 {os.number}
               </div>
-              <p className="text-[10px] tracking-widest uppercase font-bold mb-2" style={{ color: "var(--muted)" }}>
+              <p className="text-[10px] tracking-widest uppercase font-bold mb-2 leading-snug" style={{ color: "var(--muted)" }}>
                 {os.tag}
               </p>
               <h3 className="font-serif text-xl mb-3" style={{ color: "var(--navy)" }}>

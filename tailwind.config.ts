@@ -24,8 +24,8 @@ const config: Config = {
         line: "#d0d0d0",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        serif: ["var(--font-outfit)", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "1140px",

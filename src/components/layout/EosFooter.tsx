@@ -28,7 +28,7 @@ export default function EosFooter() {
                 { href: "/entrepreneur-os/coaching", label: "1:1 Coaching" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="border-0 hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  <Link href={l.href} className="border-0 transition-colors hover:!text-[var(--amber)]" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {l.label}
                   </Link>
                 </li>
@@ -48,7 +48,7 @@ export default function EosFooter() {
                 { href: "mailto:hello@shinasalako.com", label: "Contact" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="border-0 hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  <Link href={l.href} className="border-0 transition-colors hover:!text-[var(--amber)]" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {l.label}
                   </Link>
                 </li>
@@ -67,7 +67,7 @@ export default function EosFooter() {
                 { href: "/entrepreneur-os/refund-policy", label: "Refund Policy" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="border-0 hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  <Link href={l.href} className="border-0 transition-colors hover:!text-[var(--amber)]" style={{ color: "rgba(255,255,255,0.85)" }}>
                     {l.label}
                   </Link>
                 </li>

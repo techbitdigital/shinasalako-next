@@ -3,7 +3,7 @@ import FleetAuditForm from "@/components/fleet/FleetAuditForm";
 
 export const metadata: Metadata = {
   title: "15-Minute Reporting Audit",
-  description: "A quick audit of your fleet reporting practice — find the gaps in 15 minutes.",
+  description: "A quick audit of your fleet reporting practice find the gaps in 15 minutes.",
 };
 
 export default function AuditPage() {

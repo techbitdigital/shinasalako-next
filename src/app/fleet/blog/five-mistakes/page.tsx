@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Five Mistakes Fleet Managers Make When Implementing Telematics",
-  description: "The most common and costly errors in telematics implementation — and how to avoid them before you spend a naira on hardware.",
+  description: "The most common and costly errors in telematics implementation and how to avoid them before you spend a naira on hardware.",
 };
 
 export default function BlogPost() {
@@ -18,7 +18,7 @@ export default function BlogPost() {
             Five Mistakes Fleet Managers Make When Implementing Telematics
           </h1>
           <p className="font-serif italic text-lg leading-relaxed mb-10" style={{ color: "var(--ink-soft)" }}>
-            The most common and costly errors in telematics implementation — and how to avoid them before you spend a naira on hardware.
+            The most common and costly errors in telematics implementation and how to avoid them before you spend a naira on hardware.
           </p>
           <div className="rounded-lg p-8 text-center" style={{ background: "#fff", border: "1px solid var(--line)" }}>
             <p className="font-serif text-xl mb-4" style={{ color: "var(--navy)" }}>Full article coming soon.</p>

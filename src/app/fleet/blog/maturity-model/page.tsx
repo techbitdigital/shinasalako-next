@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "The Fleet Maturity Model: Which Stage Is Your Operation At?",
-  description: "Tracking, Monitoring, Discipline, Optimisation, Strategic Asset — where you are determines what you do next.",
+  description: "Tracking, Monitoring, Discipline, Optimisation, Strategic Asset, where you are determines what you do next.",
 };
 
 export default function BlogPost() {
@@ -18,7 +18,7 @@ export default function BlogPost() {
             The Fleet Maturity Model: Which Stage Is Your Operation At?
           </h1>
           <p className="font-serif italic text-lg leading-relaxed mb-10" style={{ color: "var(--ink-soft)" }}>
-            Tracking, Monitoring, Discipline, Optimisation, Strategic Asset — where you are determines what you do next.
+            Tracking, Monitoring, Discipline, Optimisation, Strategic Asset, where you are determines what you do next.
           </p>
           <div className="rounded-lg p-8 text-center" style={{ background: "#fff", border: "1px solid var(--line)" }}>
             <p className="font-serif text-xl mb-4" style={{ color: "var(--navy)" }}>Full article coming soon.</p>

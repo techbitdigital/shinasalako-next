@@ -14,7 +14,7 @@ export default function AssessmentPage() {
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--cream)" }}>Free diagnostic</p>
           <h1 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: "#fff" }}>Fleet Operating System Maturity Assessment</h1>
           <p className="font-serif italic text-base md:text-lg mb-4" style={{ color: "var(--cream)" }}>
-            18 questions across the seven FOS layers. Your maturity stage and weakest layer — in 10 minutes.
+            18 questions across the seven FOS layers. Your maturity stage and weakest layer in 10 minutes.
           </p>
           <p className="text-sm mb-10" style={{ color: "rgba(235,243,251,0.7)" }}>Self-paced · No login · Results sent to your inbox</p>
         </div>

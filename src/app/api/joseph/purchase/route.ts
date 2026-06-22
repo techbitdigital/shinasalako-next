@@ -16,7 +16,7 @@ export async function POST(req: Request) {
         <p>Thank you for your purchase.</p>
         <p><strong>Product:</strong> ${product}</p>
         <p><strong>Reference:</strong> ${reference}</p>
-        <p><strong>Amount:</strong> \u20a6${Number(amount).toLocaleString()}</p>
+        <p><strong>Amount:</strong> ₦${Number(amount).toLocaleString()}</p>
         <p>Your materials will be delivered to this email shortly.</p>
         <p>— Shina Salako</p>
       `,

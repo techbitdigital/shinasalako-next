@@ -23,11 +23,11 @@ export default function EosAboutPage() {
                 Author & operator · MD/CEO, SALCOMMS KWIK XTRA LIMITED · Maxwell Leadership Team member
               </p>
               <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-                <p>Started his first business in 2009 with ₦30,000 gifted by a neighbour — money originally intended for rent, redirected with the neighbour's blessing into an SMS gateway business.</p>
+                <p>Started his first business in 2009 with ₦30,000 gifted by a neighbour, money originally intended for rent, redirected with the neighbour's blessing into an SMS gateway business.</p>
                 <p>Built and sold across SMS, fleet management, and consulting over the next eighteen years. Postgraduate studies at the University of Liverpool (2014) and Lagos Business School (2019).</p>
-                <p>In 2014 he pioneered Guinness Nigeria's first fleet management programme through SALCOMMS KWIK XTRA LIMITED. Twelve years later, that engagement is still running — making it one of the longest-running embedded telematics service relationships in Nigeria.</p>
+                <p>In 2014 he pioneered Guinness Nigeria's first fleet management programme through SALCOMMS KWIK XTRA LIMITED. Twelve years later, that engagement is still running making it one of the longest-running embedded telematics service relationships in Nigeria.</p>
                 <p>He joined the John Maxwell Leadership team in 2022 as a certified coach, speaker, and trainer. He runs regular leadership and entrepreneurship sessions across Lagos.</p>
-                <p>The Entrepreneur Operating System is the book he wishes someone had handed him in 2009 — when hustle felt like strategy, and nobody had named the leak.</p>
+                <p>The Entrepreneur Operating System is the book he wishes someone had handed him in 2009 when hustle felt like strategy, and nobody had named the leak.</p>
               </div>
               <div className="grid grid-cols-2 gap-5 mt-8 pt-6" style={{ borderTop: "1px solid var(--line)" }}>
                 {[

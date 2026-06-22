@@ -25,10 +25,10 @@ export default function JosephPhasesGrid() {
             e.currentTarget.style.boxShadow = "none";
           }}
         >
-          <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.1rem", color: "#FF6B00", fontWeight: 700 }}>
+          <div style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "1.1rem", color: "#FF6B00", fontWeight: 700 }}>
             {phase.num}
           </div>
-          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.32rem", color: "#1A3C6E", margin: "0.15em 0 0.1em", fontWeight: 600 }}>
+          <h3 style={{ fontFamily: "var(--font-outfit), system-ui, sans-serif", fontSize: "1.32rem", color: "#1A3C6E", margin: "0.15em 0 0.1em", fontWeight: 600 }}>
             {phase.name}
           </h3>
           <div className="uppercase mb-2.5" style={{ fontSize: "0.74rem", letterSpacing: "0.16em", color: "#FF6B00" }}>

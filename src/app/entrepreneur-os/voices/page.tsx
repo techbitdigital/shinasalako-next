@@ -14,7 +14,7 @@ export default function EosVoicesPage() {
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Community</p>
           <h1 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: "var(--navy)" }}>Founder Fifteen</h1>
           <p className="font-serif italic text-base md:text-lg mb-8" style={{ color: "var(--ink-soft)" }}>
-            Fifteen founders. Fifteen stories. How the five operating systems show up — and leak — in real businesses across Nigeria.
+            Fifteen founders. Fifteen stories. How the five operating systems show up and leak in real businesses across Nigeria.
           </p>
           <p className="text-sm" style={{ color: "var(--muted)" }}>
             Stories coming soon. Take the diagnostic to be notified when the first Founder Fifteen profiles go live.

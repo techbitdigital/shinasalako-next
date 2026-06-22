@@ -14,7 +14,7 @@ export default function EosCoachingPage() {
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--cream)" }}>Work with Shina</p>
           <h1 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: "#fff" }}>1:1 Coaching & Corporate Workshops</h1>
           <p className="font-serif italic text-base md:text-lg mb-8" style={{ color: "var(--cream)" }}>
-            For founders who have identified the leak and are ready to fix it — with support. And for organisations that want the Entrepreneur OS framework delivered to their leadership team.
+            For founders who have identified the leak and are ready to fix it with support. And for organisations that want the Entrepreneur OS framework delivered to their leadership team.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
             {[

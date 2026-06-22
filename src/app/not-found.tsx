@@ -10,7 +10,7 @@ export default function NotFound() {
           <p className="font-serif text-8xl font-bold mb-4" style={{ color: "var(--navy)", opacity: 0.15 }}>404</p>
           <h1 className="font-serif text-3xl sm:text-4xl mb-4" style={{ color: "var(--navy)" }}>Page not found.</h1>
           <p className="font-serif italic text-lg mb-8" style={{ color: "var(--ink-soft)" }}>
-            The page you are looking for does not exist — or may have moved.
+            The page you are looking for does not exist or may have moved.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/" className="inline-block px-7 py-3.5 rounded-full text-sm font-semibold border-0" style={{ background: "var(--navy)", color: "#fff" }}>
