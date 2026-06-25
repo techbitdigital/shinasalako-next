@@ -11,10 +11,10 @@ export default function EosDiagnosticPromo() {
           Start here
         </p>
         <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-4" style={{ color: "var(--navy)" }}>
-          The 12-Minute Founder Diagnostic
+          The Founder Diagnostic
         </h2>
         <p className="font-serif italic text-base md:text-lg leading-relaxed mb-3" style={{ color: "var(--ink-soft)" }}>
-          Twelve questions. Five operating systems. One clear answer about
+          Fifteen questions. Five operating systems. One clear answer about
           where your business is silently leaking.
         </p>
         <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>

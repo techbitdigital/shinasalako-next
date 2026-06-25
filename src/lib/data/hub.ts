@@ -35,9 +35,9 @@ export const hubBooks: BookCard[] = [
 
 export const hubDiagnostics: DiagnosticLink[] = [
   {
-    title: "The 12-Minute Founder Diagnostic",
+    title: "The Founder Diagnostic",
     description:
-      "Twelve questions, five operating systems, one clear answer about where your business is silently leaking.",
+      "Fifteen questions, five operating systems, one clear answer about where your business is silently leaking.",
     href: "/entrepreneur-os/diagnostic",
   },
   {

@@ -3,7 +3,7 @@ import EosDiagnosticForm from "@/components/eos/EosDiagnosticForm";
 
 export const metadata = buildMetadata({
   title: "Take the Founder Diagnostic",
-  description: "Twelve questions. Five operating systems. One clear answer.",
+  description: "Fifteen questions. Five operating systems. One clear answer.",
   path: "/entrepreneur-os/diagnostic/take",
 });
 
