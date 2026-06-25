@@ -24,8 +24,10 @@ const navItems = [
     children: [
       { href: "/fleet", label: "Overview" },
       { href: "/fleet/book", label: "The Book" },
+      { href: "/fleet/toolkit", label: "The Practitioner's Toolkit" },
       { href: "/fleet/training", label: "Training Programmes" },
       { href: "/fleet/assessment", label: "FOS Assessment" },
+      { href: "/fleet/audit", label: "15-Minute Reporting Audit" },
       { href: "/fleet/firstlook", label: "Get the First Look" },
       { href: "/fleet/contact", label: "Contact" },
     ],
