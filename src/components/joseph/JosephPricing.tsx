@@ -117,7 +117,7 @@ export default function JosephPricing() {
                 cursor: "pointer",
               }}
             >
-              {t.key === "bundle" ? "Get the Bundle" : t.key === "workbook" ? "Buy the Workbook" : "Buy the Book"}
+              {t.key === "bundle" ? "Get the Bundle" : t.key === "ebook" ? "Buy the eBook" : "Buy the Book"}
             </button>
           </div>
         ))}
