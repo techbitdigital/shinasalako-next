@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         <p>${strongestOS} — keep doing what you're doing here.</p>
         <h3>Your next step</h3>
         <p>
-          <a href="https://shinasalako.com/entrepreneur-os/workshop">See the workshop — 18 August, Lagos</a> |
+          <a href="https://shinasalako.com/entrepreneur-os/workshop">See the workshop — 19 September, Lagos</a> |
           <a href="https://shinasalako.com/entrepreneur-os/book">Pre-order the book</a>
         </p>
         <p>Over the next five days, you'll receive one short email per operating system — starting with your weakest.</p>

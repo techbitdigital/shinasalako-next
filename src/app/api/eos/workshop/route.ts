@@ -11,10 +11,10 @@ export async function POST(req: Request) {
     await resend.emails.send({
       from: "Shina Salako <hello@shinasalako.com>",
       to: [email],
-      subject: "You are booked — EOS Workshop, 18 August 2026",
+      subject: "You are booked — EOS Workshop, 19 September 2026",
       html: `
         <p>Hi ${name},</p>
-        <p>Your seat is confirmed for the <strong>Entrepreneur OS Half-Day Workshop — 18 August 2026, Lagos</strong>.</p>
+        <p>Your seat is confirmed for the <strong>Entrepreneur OS Half-Day Workshop — 19 September 2026, Lagos</strong>.</p>
         <p><strong>Payment reference:</strong> ${reference}</p>
         <p><strong>Amount paid:</strong> ₦${amount.toLocaleString()}</p>
         ${instalment === "instalment" ? "<p><strong>Note:</strong> This is your first instalment. The second instalment of ₦97,500 is due 14 days before the event.</p>" : ""}

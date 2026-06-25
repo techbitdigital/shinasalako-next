@@ -331,7 +331,7 @@ export default function EosDiagnosticForm() {
               <span style={{ color: "#e89456" }}>{founderCtaLabels[weakest]}</span>.
             </h3>
             <p className="text-sm mb-5 max-w-md mx-auto" style={{ color: "rgba(235,243,251,0.85)" }}>
-              18 August 2026 · Lagos · 30 founders in the room · written 90-day plan for the OS the
+              19 September 2026 · Lagos · 30 founders in the room · written 90-day plan for the OS the
               diagnostic just named. Twelve of the thirty seats are reserved for pre-order holders at{" "}
               <strong style={{ color: "var(--cream)" }}>₦155,000</strong> (₦30,000 off the public price of ₦185,000).
             </p>

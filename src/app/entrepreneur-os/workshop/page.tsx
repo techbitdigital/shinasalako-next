@@ -46,7 +46,7 @@ export default function EosWorkshopPage() {
             </div>
             <div className="rounded-lg p-8 text-center" style={{ background: "rgba(235,243,251,0.07)", border: "1px solid rgba(235,243,251,0.18)" }}>
               <p className="text-[11px] tracking-widest uppercase font-semibold mb-2" style={{ color: "var(--amber)" }}>Next cohort</p>
-              <h3 className="font-serif text-5xl mb-1" style={{ color: "var(--cream)" }}>18 August</h3>
+              <h3 className="font-serif text-5xl mb-1" style={{ color: "var(--cream)" }}>19 September</h3>
               <p className="font-serif italic mb-6" style={{ color: "var(--amber)" }}>2026 — Lagos</p>
               <hr className="border-0 border-t w-4/5 mx-auto mb-6" style={{ borderColor: "rgba(255,255,255,0.2)" }} />
               <p className="text-sm mb-1" style={{ color: "rgba(235,243,251,0.7)" }}>Per seat</p>
@@ -59,7 +59,7 @@ export default function EosWorkshopPage() {
       <section className="py-16 md:py-24" style={{ background: "var(--cream)" }}>
         <div style={{ maxWidth: "680px" }} className="mx-auto px-5 md:px-8">
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Reserve your seat</p>
-          <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Book your place 18 August 2026</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl mb-4" style={{ color: "var(--navy)" }}>Book your place — 19 September 2026</h2>
           <p className="text-sm mb-8" style={{ color: "var(--muted)" }}>30 seats only. Payment via Paystack Nigerian cards, bank transfer, and USSD supported.</p>
           <EosWorkshopBooking />
         </div>

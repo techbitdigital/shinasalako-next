@@ -87,7 +87,7 @@ export default function EosWorkshopBooking() {
     <div className="rounded-lg p-8 text-center" style={{ background: "var(--cream)" }}>
       <p className="font-serif text-2xl mb-2" style={{ color: "var(--navy)" }}>You are booked.</p>
       <p className="text-sm mb-2" style={{ color: "var(--ink-soft)" }}>A confirmation email is on its way to {form.email}.</p>
-      <p className="text-sm" style={{ color: "var(--muted)" }}>See you on 18 August 2026 in Lagos.</p>
+      <p className="text-sm" style={{ color: "var(--muted)" }}>See you on 19 September 2026 in Lagos.</p>
     </div>
   );
 

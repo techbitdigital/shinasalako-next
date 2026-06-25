@@ -58,7 +58,7 @@ export default function EosWorkshopTeaser() {
                 Next cohort
               </p>
               <h3 className="font-serif text-5xl mb-1" style={{ color: "var(--cream)" }}>
-                18 August
+                19 September
               </h3>
               <p className="font-serif italic" style={{ color: "var(--amber)" }}>
                 2026 — Lagos
