@@ -35,13 +35,13 @@ export default function FleetToolkitClient() {
             className="font-serif italic mb-7"
             style={{ color: "var(--cream)", fontSize: "1.2rem", lineHeight: 1.5, maxWidth: "680px" }}
           >
-            The full appendix set from the book \u2014 KPI dictionary, transporter scorecard, control-tower
+            The full appendix set from the book — KPI dictionary, transporter scorecard, control-tower
             routine, ROI calculator, sample SOPs, the maturity workbook, the six-month practice plan, the
             extended Guinness case study. Editable. Brand-neutral. Ready to use.
           </p>
           <div className="flex flex-wrap gap-6 text-sm" style={{ color: "var(--cream)" }}>
-            <span><strong style={{ color: "#fff" }}>19 templates</strong> \u00b7 editable formats</span>
-            <span><strong style={{ color: "#fff" }}>Instant download</strong> \u00b7 zip + cloud folder</span>
+            <span><strong style={{ color: "#fff" }}>19 templates</strong> · editable formats</span>
+            <span><strong style={{ color: "#fff" }}>Instant download</strong> · zip + cloud folder</span>
             <span><strong style={{ color: "#fff" }}>Single-organisation licence</strong></span>
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function FleetToolkitClient() {
                       className="w-full text-center py-3 rounded text-sm font-semibold block"
                       style={{ background: "transparent", color: "var(--navy)", border: "1.5px solid var(--navy)" }}
                     >
-                      Buy in dollars \u2014 contact us
+                      Buy in dollars — contact us
                     </Link>
                   </div>
                 ))}
@@ -169,7 +169,7 @@ export default function FleetToolkitClient() {
           <p className="font-serif italic text-lg mb-10" style={{ color: "var(--ink-soft)", maxWidth: "780px" }}>
             Every template is editable, brand-neutral, and built from real operating use across cargo-owner and
             transporter engagements. You drop in your own logo, your own KPI definitions, your own transporter
-            mix \u2014 and the templates work in your operation tomorrow.
+            mix — and the templates work in your operation tomorrow.
           </p>
 
           {toolkitCategories.map((cat) => (
@@ -230,15 +230,15 @@ export default function FleetToolkitClient() {
           <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--cream)" }}>Licence terms</p>
           <h2 className="font-serif text-2xl mb-5" style={{ color: "#fff" }}>One organisation, unlimited internal users.</h2>
           <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(235,243,251,0.92)" }}>
-            The Toolkit is licensed for use inside a single buying organisation \u2014 head office, all branches,
+            The Toolkit is licensed for use inside a single buying organisation — head office, all branches,
             all internal users, no per-seat limit. You may rebrand the templates with your own logo and adapt
             them to your operation. You may not redistribute, resell, or use them inside a paid consulting
-            engagement for a third party without a separate commercial licence \u2014 write to{" "}
+            engagement for a third party without a separate commercial licence — write to{" "}
             <a href="mailto:enquiries@salcomms.com" style={{ color: "#fff" }}>enquiries@salcomms.com</a> for
             consultant licensing.
           </p>
           <p className="text-sm leading-relaxed" style={{ color: "rgba(235,243,251,0.92)" }}>
-            Free updates for twelve months. After twelve months, an annual renewal is available \u2014 or you
+            Free updates for twelve months. After twelve months, an annual renewal is available — or you
             keep the version you have, indefinitely.
           </p>
         </div>

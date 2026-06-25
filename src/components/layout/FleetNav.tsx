@@ -11,9 +11,16 @@ const navGroups = [
     children: [
       { href: "/fleet/book", label: "About the book" },
       { href: "/fleet/firstlook", label: "Get the First Look — free" },
-      { href: "/fleet/toolkit", label: "Practitioner toolkit" },
       { href: "/fleet/blog", label: "Writing & articles" },
       { href: "/fleet/press", label: "Press" },
+    ],
+  },
+  {
+    label: "Toolkit",
+    href: "/fleet/toolkit",
+    children: [
+      { href: "/fleet/toolkit", label: "The Practitioner's Toolkit" },
+      { href: "/fleet/toolkit#buy", label: "Pricing & buy" },
     ],
   },
   {
