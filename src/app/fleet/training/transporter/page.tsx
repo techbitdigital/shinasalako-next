@@ -17,7 +17,7 @@ export default function TransporterPage() {
           <p className="font-serif italic text-base md:text-lg mb-6" style={{ color: "var(--cream)" }}>
             For transport companies and owner-operators. Build the operating disciplines that make you the preferred, trusted transporter for serious cargo-owners.
           </p>
-          <p className="font-serif text-3xl font-bold mb-6" style={{ color: "var(--amber)" }}>₦75,000</p>
+          <p className="font-serif text-2xl font-bold mb-6" style={{ color: "var(--amber)" }}>Custom pricing</p>
           <Link
             href="/fleet/training/scoping-call"
             className="inline-block px-7 py-3.5 rounded-full text-sm font-semibold border-0"

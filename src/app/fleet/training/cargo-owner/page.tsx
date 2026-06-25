@@ -26,7 +26,7 @@ export default function CargoOwnerPage() {
           <p className="font-serif italic text-base md:text-lg mb-6" style={{ color: "var(--cream)" }}>
             For fleet managers, control-tower teams, and operations leaders. Build the disciplines that give you independent visibility over your transporters.
           </p>
-          <p className="font-serif text-3xl font-bold mb-6" style={{ color: "var(--amber)" }}>₦85,000</p>
+          <p className="font-serif text-2xl font-bold mb-6" style={{ color: "var(--amber)" }}>Custom pricing</p>
           <Link
             href="/fleet/training/scoping-call"
             className="inline-block px-7 py-3.5 rounded-full text-sm font-semibold border-0"

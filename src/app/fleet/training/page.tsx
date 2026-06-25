@@ -14,7 +14,7 @@ const programmes = [
     duration: "6 weeks",
     format: "Online cohort",
     desc: "For fleet managers, control-tower teams, and operations leaders on the cargo-owner side. Build the disciplines that give you independent visibility over your transporters.",
-    price: "₦85,000",
+    price: "Custom pricing",
   },
   {
     href: "/fleet/training/transporter",
@@ -22,7 +22,7 @@ const programmes = [
     duration: "6 weeks",
     format: "Online cohort",
     desc: "For transport companies and owner-operators. Build the operating disciplines that make you the preferred, trusted transporter for serious cargo-owners.",
-    price: "₦75,000",
+    price: "Custom pricing",
   },
   {
     href: "/fleet/training/in-house",
