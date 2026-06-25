@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "In-House Training Cohort",
   description: "Custom fleet training delivery for organisations training 8 or more people from one team.",
-};
+  path: "/fleet/training/in-house",
+});
 
 export default function InHousePage() {
   return (

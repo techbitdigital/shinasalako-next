@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import { fleetCredentials } from "@/lib/data/fleet";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About Shina Salako",
   description: "MD/CEO of SALCOMMS KWIK XTRA LIMITED. 15+ years in telematics and logistics operations. Pioneer of Guinness Nigeria first fleet management programme.",
-};
+  path: "/fleet/about",
+});
 
 export default function FleetAboutPage() {
   return (

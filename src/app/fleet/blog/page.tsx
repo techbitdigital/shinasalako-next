@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Practitioner Blog",
   description: "Writing on fleet telematics, operations, and the business of running a disciplined fleet — by Shina Salako.",
-};
+  path: "/fleet/blog",
+});
 
 const posts = [
   {

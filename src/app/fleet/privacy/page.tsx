@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = { title: "Privacy Policy", description: "Privacy policy for shinasalako.com and SALCOMMS KWIK XTRA LIMITED." };
+export const metadata = buildMetadata({
+  title: "Privacy Policy", description: "Privacy policy for shinasalako.com and SALCOMMS KWIK XTRA LIMITED.",
+  path: "/fleet/privacy",
+});
 
 export default function FleetPrivacyPage() {
   return (

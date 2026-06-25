@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FleetAssessmentForm from "@/components/fleet/FleetAssessmentForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "FOS Maturity Assessment",
   description: "Score your fleet operation against the seven-layer Fleet Operating System. 18 questions, 10 minutes.",
-};
+  path: "/fleet/assessment",
+});
 
 export default function AssessmentPage() {
   return (

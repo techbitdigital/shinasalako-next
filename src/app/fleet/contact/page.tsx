@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FleetContactForm from "@/components/fleet/FleetContactForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Contact & Enquiries",
   description: "Get in touch with Shina Salako for speaking, consulting, training, or general enquiries.",
-};
+  path: "/fleet/contact",
+});
 
 export default function FleetContactPage() {
   return (

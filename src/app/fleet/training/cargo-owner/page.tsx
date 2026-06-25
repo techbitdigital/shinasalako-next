@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Cargo-Owner Training Programme",
   description: "Six-week practitioner cohort for fleet managers and control-tower teams on the cargo-owner side.",
-};
+  path: "/fleet/training/cargo-owner",
+});
 
 const modules = [
   { week: "Week 1", title: "Data & Visibility", desc: "Device setup, connectivity, platform configuration, master data, uptime standards." },

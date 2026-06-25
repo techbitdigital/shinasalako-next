@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EosCoachingForm from "@/components/eos/EosCoachingForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "1:1 Coaching",
   description: "Work directly with Shina Salako — Maxwell Leadership certified coach. For founders ready to fix the leak.",
-};
+  path: "/entrepreneur-os/coaching",
+});
 
 export default function EosCoachingPage() {
   return (

@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Training Confirmed", description: "Your training programme booking is confirmed." };
+export const metadata = buildMetadata({
+  title: "Training Confirmed", description: "Your training programme booking is confirmed.",
+  path: "/fleet/training/confirmation",
+});
 
 export default function TrainingConfirmationPage() {
   return (

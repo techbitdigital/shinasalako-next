@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Terms of Service", description: "Terms of service for the Entrepreneur OS." };
+import { buildMetadata } from "@/lib/metadata";
+export const metadata = buildMetadata({
+  title: "Terms of Service", description: "Terms of service for the Entrepreneur OS.",
+  path: "/entrepreneur-os/terms",
+});
 export default function EosTermsPage() {
   return (
     <main>

@@ -1,8 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import GlobalBar from "@/components/global/GlobalBar";
 
-export const metadata: Metadata = { title: "Thank You", description: "Your worksheet is on its way." };
+export const metadata = buildMetadata({
+  title: "Thank You", description: "Your worksheet is on its way.",
+  path: "/worksheet-thanks",
+});
 
 export default function WorksheetThanksPage() {
   return (

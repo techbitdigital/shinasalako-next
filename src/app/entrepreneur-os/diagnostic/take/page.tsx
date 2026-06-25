@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EosDiagnosticForm from "@/components/eos/EosDiagnosticForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Take the Founder Diagnostic",
   description: "Twelve questions. Five operating systems. One clear answer.",
-};
+  path: "/entrepreneur-os/diagnostic/take",
+});
 
 export default function DiagnosticTakePage() {
   return (

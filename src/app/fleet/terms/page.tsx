@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = { title: "Terms of Service", description: "Terms of service for shinasalako.com." };
+export const metadata = buildMetadata({
+  title: "Terms of Service", description: "Terms of service for shinasalako.com.",
+  path: "/fleet/terms",
+});
 
 export default function FleetTermsPage() {
   return (

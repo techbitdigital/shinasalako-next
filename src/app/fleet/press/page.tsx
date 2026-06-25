@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Press",
   description: "Press information, media kit, and contact for Shina Salako and SALCOMMS KWIK XTRA LIMITED.",
-};
+  path: "/fleet/press",
+});
 
 export default function PressPage() {
   return (

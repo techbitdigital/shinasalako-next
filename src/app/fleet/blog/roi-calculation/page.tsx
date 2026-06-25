@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "How to Calculate the ROI of a Fleet Telematics Investment",
   description: "A practitioner framework for building the business case — fuel, maintenance, incidents, and productivity.",
-};
+  path: "/fleet/blog/roi-calculation",
+});
 
 export default function BlogPost() {
   return (

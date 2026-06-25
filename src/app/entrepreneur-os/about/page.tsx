@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About Shina Salako",
   description: "Started with 30,000 naira in 2009. Built and sold across SMS, fleet management, and consulting over eighteen years. Maxwell Leadership certified.",
-};
+  path: "/entrepreneur-os/about",
+});
 
 export default function EosAboutPage() {
   return (

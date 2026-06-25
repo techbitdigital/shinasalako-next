@@ -15,8 +15,10 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "Shina Salako — Books, Programmes & Diagnostics for Operators",
-    template: "%s | Shina Salako",
+    default: "Shina Salako \u2014 Books, Programmes & Diagnostics for Operators",
+    template: "%s | Shina Salako", // buildMetadata() passes titles WITHOUT "Shina Salako" already in them,
+                                    // so this template safely appends it exactly once. Pages that build their
+                                    // own full title (rare) should use { title: { absolute: "..." } } instead.
   },
   description:
     "Three books, three operating systems: for founders, for fleet leaders, and for the season you are building through. By Shina Salako, MD-CEO SALCOMMS KWIK XTRA LIMITED.",

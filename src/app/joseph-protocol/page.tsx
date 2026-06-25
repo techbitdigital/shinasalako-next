@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import GlobalBar from "@/components/global/GlobalBar";
@@ -7,11 +7,12 @@ import JosephPricing from "@/components/joseph/JosephPricing";
 import JosephPhasesGrid from "@/components/joseph/JosephPhasesGrid";
 import { insideBullets, tools } from "@/lib/data/joseph";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Joseph Protocol — Shina Salako",
   description:
     "Build With Wisdom. Steward With Excellence. Preserve for Legacy. A practical biblical framework for understanding your season, preparing for opportunity, and building a legacy that outlives you.",
-};
+  path: "/joseph-protocol",
+});
 
 export default function JosephProtocolPage() {
   return (

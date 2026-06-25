@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EosHero from "@/components/eos/EosHero";
 import EosThesis from "@/components/eos/EosThesis";
 import FiveOperatingSystems from "@/components/eos/FiveOperatingSystems";
@@ -8,17 +8,12 @@ import EosDiagnosticPromo from "@/components/eos/EosDiagnosticPromo";
 import EosAuthor from "@/components/eos/EosAuthor";
 import EosFinalCta from "@/components/eos/EosFinalCta";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Entrepreneur Operating System",
   description:
     "Your business runs on five operating systems. One of them is leaking. Find out which one in 12 minutes. The book, the workshop, and the diagnostic by Shina Salako.",
-  openGraph: {
-    title: "The Entrepreneur Operating System — Shina Salako",
-    description:
-      "A founder is not a business. A founder is a bottleneck wearing a job title. Find the leak in 12 minutes.",
-    url: "https://shinasalako.com/entrepreneur-os",
-  },
-};
+  path: "/entrepreneur-os",
+});
 
 export default function EosPage() {
   return (

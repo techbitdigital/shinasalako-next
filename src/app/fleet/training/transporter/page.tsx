@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Transporter Training Programme",
   description: "Six-week practitioner cohort for transport companies and owner-operators.",
-};
+  path: "/fleet/training/transporter",
+});
 
 export default function TransporterPage() {
   return (

@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import GlobalBar from "@/components/global/GlobalBar";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Resources",
   description: "Free tools, diagnostics, and downloads from Shina Salako — for founders and fleet leaders.",
-};
+  path: "/resources",
+});
 
 const resources = [
   {

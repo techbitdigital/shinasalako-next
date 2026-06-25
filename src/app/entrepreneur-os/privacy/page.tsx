@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Privacy Policy", description: "Privacy policy for the Entrepreneur OS." };
+import { buildMetadata } from "@/lib/metadata";
+export const metadata = buildMetadata({
+  title: "Privacy Policy", description: "Privacy policy for the Entrepreneur OS.",
+  path: "/entrepreneur-os/privacy",
+});
 export default function EosPrivacyPage() {
   return (
     <main>

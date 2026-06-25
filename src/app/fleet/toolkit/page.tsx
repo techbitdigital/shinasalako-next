@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Practitioner Toolkit",
   description: "A collection of templates, checklists, and frameworks for fleet operations professionals.",
-};
+  path: "/fleet/toolkit",
+});
 
 const tools = [
   { title: "KPI Dictionary", desc: "The complete set of fleet KPIs — defined, measured, and benchmarked.", tag: "Reference" },

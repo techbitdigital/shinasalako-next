@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Book a Session", description: "Book a live chapter session with Shina Salako." };
+export const metadata = buildMetadata({
+  title: "Book a Session", description: "Book a live chapter session with Shina Salako.",
+  path: "/fleet/session",
+});
 
 export default function SessionPage() {
   return (

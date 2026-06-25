@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FleetFirstLookForm from "@/components/fleet/FleetFirstLookForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Get the First Look",
   description: "A free 40-page PDF — the foreword, introduction, full first chapter, and the maturity-model framework.",
-};
+  path: "/fleet/firstlook",
+});
 
 export default function FirstLookPage() {
   return (

@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Refund Policy", description: "Refund policy for Entrepreneur OS products." };
+import { buildMetadata } from "@/lib/metadata";
+export const metadata = buildMetadata({
+  title: "Refund Policy", description: "Refund policy for Entrepreneur OS products.",
+  path: "/entrepreneur-os/refund-policy",
+});
 export default function EosRefundPage() {
   return (
     <main>

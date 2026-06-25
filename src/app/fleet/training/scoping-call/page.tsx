@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FleetScopingForm from "@/components/fleet/FleetScopingForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Book a Scoping Call",
   description: "Book a free 30-minute scoping call to discuss the right training programme for your team.",
-};
+  path: "/fleet/training/scoping-call",
+});
 
 export default function ScopingCallPage() {
   return (

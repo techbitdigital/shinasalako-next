@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Five Mistakes Fleet Managers Make When Implementing Telematics",
   description: "The most common and costly errors in telematics implementation and how to avoid them before you spend a naira on hardware.",
-};
+  path: "/fleet/blog/five-mistakes",
+});
 
 export default function BlogPost() {
   return (

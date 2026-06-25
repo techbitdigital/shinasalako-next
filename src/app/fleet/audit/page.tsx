@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import FleetAuditForm from "@/components/fleet/FleetAuditForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "15-Minute Reporting Audit",
   description: "A quick audit of your fleet reporting practice find the gaps in 15 minutes.",
-};
+  path: "/fleet/audit",
+});
 
 export default function AuditPage() {
   return (

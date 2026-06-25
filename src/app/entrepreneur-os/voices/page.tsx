@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Founder Fifteen",
   description: "Fifteen founders. Fifteen stories. One framework — how the Entrepreneur OS shows up in real businesses.",
-};
+  path: "/entrepreneur-os/voices",
+});
 
 export default function EosVoicesPage() {
   return (

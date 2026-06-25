@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Fleet Maturity Model: Which Stage Is Your Operation At?",
   description: "Tracking, Monitoring, Discipline, Optimisation, Strategic Asset, where you are determines what you do next.",
-};
+  path: "/fleet/blog/maturity-model",
+});
 
 export default function BlogPost() {
   return (

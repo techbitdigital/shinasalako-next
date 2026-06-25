@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EosDiagnosticForm from "@/components/eos/EosDiagnosticForm";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The 12-Minute Founder Diagnostic",
   description: "Twelve questions. Five operating systems. One clear answer about where your business is silently leaking.",
-};
+  path: "/entrepreneur-os/diagnostic",
+});
 
 export default function EosDiagnosticPage() {
   return (

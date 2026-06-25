@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Session Replays", description: "Recordings of past live chapter sessions." };
+export const metadata = buildMetadata({
+  title: "Session Replays", description: "Recordings of past live chapter sessions.",
+  path: "/fleet/session-replay",
+});
 
 export default function SessionReplayPage() {
   return (

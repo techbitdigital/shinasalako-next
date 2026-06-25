@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/metadata";
 import EosWorkshopBooking from "@/components/eos/EosWorkshopBooking";
 import { eosWorkshopStats } from "@/lib/data/eos";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "The Workshop",
   description: "Half-day intensive in Lagos. Walk in with a problem. Walk out with a written 90-day fix plan.",
-};
+  path: "/entrepreneur-os/workshop",
+});
 
 export default function EosWorkshopPage() {
   return (
