@@ -158,30 +158,30 @@ export default function EosBookClient() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="bg-white rounded-lg p-7" style={{ border: "1px solid var(--line)" }}>
                   <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>Paperback</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦15,000</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦25,000</p>
                   <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook · Lagos 2-3 days</p>
                   <PaystackButton
                     email={form.email} name={form.name}
-                    amount={15000}
+                    amount={25000}
                     label="Buy Paperback"
                     reference={`EOS-PAPERBACK-${Date.now()}`}
                     metadata={{ product: "EOS Book Paperback" }}
-                    onSuccess={(ref) => handleSuccess(ref, "Paperback", 15000)}
+                    onSuccess={(ref) => handleSuccess(ref, "Paperback", 25000)}
                     className="w-full py-3 rounded-full text-sm font-semibold border-0"
                     style={{ background: "var(--navy)", color: "#fff" }}
                   />
                 </div>
                 <div className="bg-white rounded-lg p-7" style={{ border: "2px solid var(--amber)" }}>
                   <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--amber)" }}>eBook — PDF</p>
-                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦9,500</p>
+                  <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦20,000</p>
                   <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
                   <PaystackButton
                     email={form.email} name={form.name}
-                    amount={9500}
+                    amount={20000}
                     label="Buy eBook"
                     reference={`EOS-EBOOK-${Date.now()}`}
                     metadata={{ product: "EOS Book eBook" }}
-                    onSuccess={(ref) => handleSuccess(ref, "eBook", 9500)}
+                    onSuccess={(ref) => handleSuccess(ref, "eBook", 20000)}
                     className="w-full py-3 rounded-full text-sm font-semibold border-0"
                     style={{ background: "var(--amber)", color: "#fff" }}
                   />
