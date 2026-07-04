@@ -23,9 +23,9 @@ export default function FleetAboutPage() {
               <p className="font-serif italic text-base mb-8" style={{ color: "var(--ink-soft)" }}>MD/CEO, SALCOMMS KWIK XTRA LIMITED · 15+ years in telematics and logistics operations</p>
               <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
                 <p>Shina Salako is the founder and managing director of SALCOMMS KWIK XTRA LIMITED, a telematics service provider whose operating model is built on embedded teams at client sites.</p>
-                <p>In 2014 he pioneered and managed Guinness Nigeria's first fleet management programme. Twelve years later, SALCOMMS is still embedded in that operation a dual relationship that has shaped how this book describes vendor governance, change management, and the long arc of a service-provider relationship.</p>
+                <p>In 2014 he pioneered and managed Guinness Nigeria's first fleet management programme. Twelve years later, SALCOMMS is still embedded in that operation — a dual relationship that has shaped how this book describes vendor governance, change management, and the long arc of a service-provider relationship.</p>
                 <p>He is affiliated with PowerFleet, a global telematics platform operating in over fifty countries, and is a certified Maxwell Leadership Team member.</p>
-                <p>Much of this book is written from the seat he has worked in for the last fifteen years that of the embedded telematics service provider sitting alongside the client's operations team, daily.</p>
+                <p>Much of this book is written from the seat he has worked in for the last fifteen years — that of the embedded telematics service provider sitting alongside the client's operations team, daily.</p>
               </div>
               <div className="grid grid-cols-2 gap-5 mt-8 pt-6" style={{ borderTop: "1px solid var(--line)" }}>
                 {fleetCredentials.map((c) => (
