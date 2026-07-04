@@ -18,8 +18,8 @@ export default function PressPage() {
           </p>
           <div className="space-y-6">
             {[
-              { label: "Media enquiries", value: "enquiries@salcomms.com" },
-              { label: "Speaking & events", value: "enquiries@salcomms.com" },
+              { label: "Media enquiries", value: "info@salcomms.com" },
+              { label: "Speaking & events", value: "info@salcomms.com" },
               { label: "Response time", value: "Within one business day" },
             ].map((item) => (
               <div key={item.label} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 pb-4" style={{ borderBottom: "1px solid var(--line)" }}>
