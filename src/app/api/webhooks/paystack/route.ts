@@ -25,12 +25,12 @@ export async function POST(req: Request) {
     const signature = req.headers.get("x-paystack-signature");
 
     // 1. Verify webhook signature
-    if (!signature || !process.env.PAYSTACK_WEBHOOK_SECRET) {
+    if (!signature || !process.env.PAYSTACK_SECRET_KEY) {
       console.error("Webhook: missing signature or secret");
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const expectedSignature = createHmac("sha512", process.env.PAYSTACK_WEBHOOK_SECRET)
+    const expectedSignature = createHmac("sha512", process.env.PAYSTACK_SECRET_KEY)
       .update(rawBody)
       .digest("hex");
 
