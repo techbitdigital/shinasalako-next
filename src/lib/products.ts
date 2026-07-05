@@ -1,24 +1,24 @@
 /**
  * Maps a Paystack metadata product key to the R2 file key for that product.
- * Update file keys once PDFs are uploaded to the R2 bucket.
+ * File keys must match exactly what is in the R2 bucket (case-sensitive).
  */
 export const PRODUCT_FILE_MAP: Record<string, string> = {
   // Fleet book
   "Fleet Book Paperback": "", // physical — no PDF delivery
-  "Fleet Book eBook": "fleet/telematics-fleet-management-ebook.pdf",
+  "Fleet Book eBook": "fleet/telematics-fleet-management-ebook/Telematics & Fleet Management -Operating Playbook for fleet Leaders.pdf",
 
   // EOS book
   "EOS Book Paperback": "", // physical — no PDF delivery
-  "EOS Book eBook": "eos/entrepreneur-operating-system-ebook.pdf",
+  "EOS Book eBook": "eos/entrepreneur-operating-system-ebook/THE ENTREPRENEUR OPERATING SYSTEM .pdf",
 
   // Joseph Protocol
-  "The Joseph Protocol": "joseph/joseph-protocol-book.pdf",
-  "The Complete Bundle": "joseph/joseph-protocol-bundle.zip",
-  "eBook": "joseph/joseph-protocol-ebook.pdf",
+  "The Joseph Protocol": "joseph/joseph-protocol-book/THE JOSEPH PROTOCOL.pdf",
+  "The Complete Bundle": "joseph/joseph-protocol-book/THE JOSEPH PROTOCOL.pdf",
+  "eBook": "joseph/joseph-protocol-book/THE JOSEPH PROTOCOL.pdf",
 
   // Toolkit
-  "The Toolkit.": "toolkit/practitioner-toolkit.zip",
-  "The Book and the Toolkit.": "toolkit/practitioner-toolkit-bundle.zip",
+  "The Toolkit.": "toolkit/practitioner-toolkit.zip/SALCOMMS_Practitioners_Toolkit.zip",
+  "The Book and the Toolkit.": "toolkit/practitioner-toolkit.zip/SALCOMMS_Practitioners_Toolkit.zip",
 };
 
 /**
