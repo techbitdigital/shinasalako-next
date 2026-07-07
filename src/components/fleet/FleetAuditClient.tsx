@@ -302,22 +302,83 @@ export default function FleetAuditClient() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ Accordion */}
       <section className="py-16 md:py-24" style={{ background: "var(--cream)" }}>
         <div style={{ maxWidth: "720px" }} className="mx-auto px-5 md:px-8">
-          <h2 className="font-serif text-2xl sm:text-3xl mb-8" style={{ color: "var(--navy)" }}>
+          <p className="text-[11px] tracking-widest uppercase font-bold mb-3" style={{ color: "var(--teal)" }}>FAQ</p>
+          <h2 className="font-serif text-2xl sm:text-3xl mb-10" style={{ color: "var(--navy)" }}>
             A few practical questions, answered.
           </h2>
-          <div className="space-y-7">
-            {auditFaqs.map((faq) => (
-              <div key={faq.q}>
-                <h3 className="font-serif text-lg font-bold mb-2" style={{ color: "var(--navy)" }}>{faq.q}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>{faq.a}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
         </div>
       </section>
     </main>
+  );
+}
+
+function FaqAccordion() {
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <div className="space-y-3">
+      {auditFaqs.map((faq, i) => {
+        const isOpen = open === i;
+        return (
+          <div
+            key={faq.q}
+            className="rounded-xl overflow-hidden transition-all duration-200"
+            style={{
+              background: isOpen ? "#fff" : "#fff",
+              border: isOpen ? "1.5px solid var(--navy)" : "1px solid var(--line)",
+              boxShadow: isOpen ? "0 4px 20px rgba(20,33,61,0.08)" : "none",
+            }}
+          >
+            <button
+              onClick={() => setOpen(isOpen ? null : i)}
+              className="w-full flex items-center justify-between gap-4 text-left border-0 bg-transparent cursor-pointer"
+              style={{ padding: "20px 24px" }}
+            >
+              <span
+                className="font-serif text-base font-bold"
+                style={{ color: "var(--navy)" }}
+              >
+                {faq.q}
+              </span>
+              <span
+                className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200"
+                style={{
+                  background: isOpen ? "var(--navy)" : "var(--cream)",
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2 4L6 8L10 4"
+                    stroke={isOpen ? "#fff" : "var(--navy)"}
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              style={{
+                maxHeight: isOpen ? "400px" : "0",
+                overflow: "hidden",
+                transition: "max-height 0.3s ease",
+              }}
+            >
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "var(--ink-soft)", padding: "0 24px 20px" }}
+              >
+                {faq.a}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
