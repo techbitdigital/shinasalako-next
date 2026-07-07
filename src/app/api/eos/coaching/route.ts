@@ -1,9 +1,15 @@
 import { Resend } from "resend";
+import { rateLimit, getIP } from "@/lib/rate-limit";
 import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
+  const { allowed } = rateLimit(getIP(req));
+  if (!allowed) {
+    return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+  }
+
   try {
     const { name, email, business, challenge, type } = await req.json();
     if (!name || !email) return NextResponse.json({ error: "Missing fields" }, { status: 400 });

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { rateLimit, getIP } from "@/lib/rate-limit";
 import { createHmac } from "crypto";
 import { Resend } from "resend";
 import { generateDownloadUrl } from "@/lib/r2";
@@ -20,6 +21,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * emails to the team — they do NOT trigger delivery.
  */
 export async function POST(req: Request) {
+  const { allowed } = rateLimit(getIP(req), "payment");
+  if (!allowed) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   try {
     const rawBody = await req.text();
     const signature = req.headers.get("x-paystack-signature");
