@@ -2,13 +2,7 @@
 import { useState } from "react";
 import { validateFields, FieldErrors } from "@/lib/validation";
 
-declare global {
-  interface Window {
-    PaystackPop: {
-      setup: (options: Record<string, unknown>) => { openIframe: () => void };
-    };
-  }
-}
+// PaystackPop v2 is instantiated as a class: new PaystackPop()
 
 export default function EosWorkshopBooking() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", organisation: "", instalment: "full" });
@@ -22,7 +16,7 @@ export default function EosWorkshopBooking() {
     setErrors({ ...errors, [name]: "" });
   }
 
-  function handlePaystack() {
+  async function handlePaystack() {
     const newErrors = validateFields({
       name: { value: form.name, required: true, label: "Full name" },
       email: { value: form.email, required: true, email: true, label: "Email address" },
@@ -38,48 +32,56 @@ export default function EosWorkshopBooking() {
     setErrors({});
     setStatus("loading");
 
-    function initPaystack() {
-      try {
-        const handler = window.PaystackPop.setup({
-          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
+    try {
+      // Initialize transaction server-side — amount is locked by the server
+      const productId = form.instalment === "full" ? "eos-workshop-full" : "eos-workshop-instalment";
+      const res = await fetch("/api/checkout/initialize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId,
           email: form.email,
-          amount: Math.round(amount * 100),
-          currency: "NGN",
-          ref: `EOS-WORKSHOP-${Date.now()}`,
-          metadata: {
-            name: form.name,
-            phone: form.phone,
-            organisation: form.organisation,
-            instalment: form.instalment,
-          },
-          callback: (response: { reference: string }) => {
+          name: form.name,
+          metadata: { phone: form.phone, organisation: form.organisation, instalment: form.instalment },
+        }),
+      });
+
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+
+      const { accessCode, reference } = await res.json();
+
+      function initPaystack() {
+        const paystack = new (window as any).PaystackPop();
+        paystack.resumeTransaction(accessCode, {
+          onSuccess: (transaction: { reference: string }) => {
+            const response = transaction;
             fetch("/api/eos/workshop", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ ...form, reference: response.reference, amount }),
+              body: JSON.stringify({ ...form, reference: response.reference || reference, amount }),
             })
               .then(() => setStatus("success"))
               .catch(() => setStatus("error"));
           },
-          onClose: () => setStatus("idle"),
+          onCancel: () => setStatus("idle"),
         });
-        handler.openIframe();
-      } catch (err) {
-        console.error("Paystack error:", err);
-        setStatus("error");
       }
-    }
 
-    if (window.PaystackPop) {
-      initPaystack();
-    } else {
-      const script = document.createElement("script");
-      script.src = "https://js.paystack.co/v1/inline.js";
-      script.onload = initPaystack;
-      script.onerror = () => {
-        setStatus("error");
-      };
-      document.body.appendChild(script);
+      if ((window as any).PaystackPop) {
+        initPaystack();
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://js.paystack.co/v2/inline.js";
+        script.onload = initPaystack;
+        script.onerror = () => setStatus("error");
+        document.body.appendChild(script);
+      }
+    } catch (err) {
+      console.error("Paystack error:", err);
+      setStatus("error");
     }
   }
 

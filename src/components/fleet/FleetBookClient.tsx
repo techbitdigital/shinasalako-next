@@ -162,11 +162,9 @@ export default function FleetBookClient() {
                   <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦25,000</p>
                   <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy · Lagos 2-3 days · Nationwide 5-7 days</p>
                   <PaystackButton
+                    productId="fleet-book-paperback"
                     email={form.email} name={form.name}
-                    amount={25000}
                     label="Buy Paperback"
-                    reference={`FLEET-PAPERBACK-${Date.now()}`}
-                    metadata={{ product: "Fleet Book Paperback" }}
                     onSuccess={(ref) => handleSuccess(ref, "Paperback", 25000)}
                     className="w-full py-3 rounded-full text-sm font-semibold border-0"
                     style={{ background: "var(--navy)", color: "#fff" }}
@@ -177,11 +175,9 @@ export default function FleetBookClient() {
                   <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦20,000</p>
                   <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
                   <PaystackButton
+                    productId="fleet-book-ebook"
                     email={form.email} name={form.name}
-                    amount={20000}
                     label="Buy eBook"
-                    reference={`FLEET-EBOOK-${Date.now()}`}
-                    metadata={{ product: "Fleet Book eBook" }}
                     onSuccess={(ref) => handleSuccess(ref, "eBook", 20000)}
                     className="w-full py-3 rounded-full text-sm font-semibold border-0"
                     style={{ background: "var(--amber)", color: "#fff" }}

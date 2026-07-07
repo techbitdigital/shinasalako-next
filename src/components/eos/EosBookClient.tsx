@@ -68,11 +68,9 @@ export default function EosBookClient() {
           <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦25,000</p>
           <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Physical copy + companion workbook · Lagos 2-3 days</p>
           <PaystackButton
+            productId="eos-book-paperback"
             email={form.email} name={form.name}
-            amount={25000}
             label="Buy Paperback"
-            reference={`EOS-PAPERBACK-${Date.now()}`}
-            metadata={{ product: "EOS Book Paperback" }}
             onSuccess={(ref) => handleSuccess(ref, "Paperback", 25000)}
             className="w-full py-3 rounded-full text-sm font-semibold border-0"
             style={{ background: "var(--navy)", color: "#fff" }}
@@ -83,11 +81,9 @@ export default function EosBookClient() {
           <p className="font-serif text-3xl font-bold mb-1" style={{ color: "var(--navy)" }}>₦20,000</p>
           <p className="text-xs mb-5" style={{ color: "var(--muted)" }}>Instant delivery · Read on any device</p>
           <PaystackButton
+            productId="eos-book-ebook"
             email={form.email} name={form.name}
-            amount={20000}
             label="Buy eBook"
-            reference={`EOS-EBOOK-${Date.now()}`}
-            metadata={{ product: "EOS Book eBook" }}
             onSuccess={(ref) => handleSuccess(ref, "eBook", 20000)}
             className="w-full py-3 rounded-full text-sm font-semibold border-0"
             style={{ background: "var(--amber)", color: "#fff" }}

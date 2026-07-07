@@ -126,11 +126,9 @@ export default function FleetToolkitClient() {
                       <span className="font-serif text-xl font-bold" style={{ color: "var(--navy)" }}>{tier.priceNaira}</span>
                     </div>
                     <PaystackButton
+                      productId={tier.key === "bundle" ? "toolkit-bundle" : "toolkit-only"}
                       email={form.email} name={form.name}
-                      amount={Number(tier.priceNaira.replace(/[^0-9]/g, ""))}
                       label={`Buy ${tier.key === "bundle" ? "the Bundle" : "the Toolkit"} in naira`}
-                      reference={`TOOLKIT-${tier.key.toUpperCase()}-${Date.now()}`}
-                      metadata={{ product: tier.title }}
                       onSuccess={(ref) => handleSuccess(ref, tier.title, Number(tier.priceNaira.replace(/[^0-9]/g, "")))}
                       className="w-full py-3 rounded text-sm font-semibold border-0 mb-1"
                       style={{ background: "var(--navy)", color: "#fff" }}

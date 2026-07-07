@@ -2,13 +2,7 @@
 import { useState } from "react";
 import { pricingTiers } from "@/lib/data/joseph";
 
-declare global {
-  interface Window {
-    PaystackPop: {
-      setup: (options: Record<string, unknown>) => { openIframe: () => void };
-    };
-  }
-}
+// PaystackPop v2 is instantiated as a class: new PaystackPop()
 
 export default function JosephPricing() {
   const [activeTier, setActiveTier] = useState<string | null>(null);
@@ -29,7 +23,7 @@ export default function JosephPricing() {
     setActiveTier(null);
   }
 
-  function handlePay() {
+  async function handlePay() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setMsg("Please enter a valid email.");
       return;
@@ -37,34 +31,50 @@ export default function JosephPricing() {
     if (!tier) return;
     setStatus("loading");
 
-    function initPaystack() {
-      const handler = window.PaystackPop.setup({
-        key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
-        email,
-        amount: tier!.amount * 100, // tier.amount is in naira; Paystack wants kobo
-        currency: "NGN",
-        ref: `JOSEPH-${tier!.key.toUpperCase()}-${Date.now()}`,
-        metadata: { product: tier!.title },
-        callback: (response: { reference: string }) => {
-          fetch("/api/joseph/purchase", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, reference: response.reference, product: tier!.title, amount: tier!.amount }),
-          }).finally(() => setStatus("success"));
-        },
-        onClose: () => setStatus("idle"),
+    try {
+      const productId = `joseph-${tier.key}`;
+      const res = await fetch("/api/checkout/initialize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId, email, name: email, metadata: { product: tier.title } }),
       });
-      handler.openIframe();
-    }
 
-    if (window.PaystackPop) {
-      initPaystack();
-    } else {
-      const script = document.createElement("script");
-      script.src = "https://js.paystack.co/v1/inline.js";
-      script.onload = initPaystack;
-      script.onerror = () => setMsg("Failed to load payment SDK.");
-      document.body.appendChild(script);
+      if (!res.ok) {
+        setMsg("Failed to initialize payment. Please try again.");
+        setStatus("idle");
+        return;
+      }
+
+      const { accessCode, reference } = await res.json();
+
+      function initPaystack() {
+        const paystack = new (window as any).PaystackPop();
+        paystack.resumeTransaction(accessCode, {
+          onSuccess: (transaction: { reference: string }) => {
+            const response = transaction;
+            fetch("/api/joseph/purchase", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, reference: response.reference || reference, product: tier!.title, amount: tier!.amount }),
+            }).finally(() => setStatus("success"));
+          },
+          onCancel: () => setStatus("idle"),
+        });
+      }
+
+      if ((window as any).PaystackPop) {
+        initPaystack();
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://js.paystack.co/v2/inline.js";
+        script.onload = initPaystack;
+        script.onerror = () => { setMsg("Failed to load payment SDK."); setStatus("idle"); };
+        document.body.appendChild(script);
+      }
+    } catch (err) {
+      console.error("Payment error:", err);
+      setMsg("Something went wrong. Please try again.");
+      setStatus("idle");
     }
   }
 
